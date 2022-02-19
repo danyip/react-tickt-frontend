@@ -1,11 +1,12 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
+import {BASE_URL} from './apiBaseUrl'
 
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
+import AllEvents from './pages/AllEvents'
 
-const BASE_URL = 'http://localhost:3000'
 
 class App extends React.Component{
 
@@ -70,6 +71,7 @@ class App extends React.Component{
           exact path='/login'
           render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
           />
+        <Route exact path='/events' component={AllEvents}/>
       </Router>
     ); // return
   } // render
