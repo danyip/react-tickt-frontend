@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios'
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
-import Login from './components/Login'
-import MyProfile from './components/MyProfile'
+import Login from './pages/Login'
+import MyProfile from './components/User/MyProfile'
 
 const BASE_URL = 'http://localhost:3000'
 
