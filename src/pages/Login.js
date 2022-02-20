@@ -1,12 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import {BASE_URL} from '../apiBaseUrl'
+import { Redirect } from 'react-router-dom';
 
 
 class Login extends React.Component{
   state = {
     email: '',
-    password: ''
+    password: '',
+    redirect: false
   }
 
   //handle typing in the form
@@ -28,11 +30,17 @@ class Login extends React.Component{
         const request = {'email': this.state.email, 'password': this.state.password}
 
         this.props.loginUser(request)
+        this.setState({ redirect: "/my_profile" })
         
         ev.preventDefault();
   } // handleSubmit()
 
   render(){
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
+
     return(
       <form onSubmit={this.handleSubmit}>
         <label>Login Form</label>
