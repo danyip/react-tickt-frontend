@@ -7,7 +7,9 @@ import MyProfile from './components/User/MyProfile'
 import AllEvents from './pages/AllEvents'
 import NewUser from './pages/NewUser';
 import Event from "./pages/Event";
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 
 class App extends React.Component{
@@ -46,37 +48,21 @@ class App extends React.Component{
   render(){
     return (
       <Router>
-        <header>
-          <nav>
-            {
-              this.state.currentUser !== undefined
-              ?
-              (
-                <ul>
-                  <li>Welcome {this.state.currentUser.name} | </li>
-                  <li><Link to='/my_profile'>My Profile</Link> | </li>
-                  <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>
-                </ul>
-              )
-              :
-              (
-                <ul>
-                  <li><Link to='/login'>Login</Link></li>
-                  <li><Link to='/new_user'>Create New Account</Link></li>
-                </ul>
-              )
-            }
-          </nav>
-          <hr/>
-        </header>
-        <Route exact path='/new_user' component={NewUser}/>
-        <Route exact path='/my_profile' component={MyProfile}/>
-        <Route
-          exact path='/login'
-          render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
-          />
-        <Route exact path='/events' component={AllEvents}/>
-        <Route exact path='/event/:id' component={Event}/>
+        <div>
+          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
+          
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/new_user' component={NewUser}/>
+          <Route exact path='/my_profile' component={MyProfile}/>
+          <Route
+            exact path='/login'
+            render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
+            />
+          <Route exact path='/events' component={AllEvents}/>
+          <Route exact path='/event/:id' component={Event}/>
+
+          <Footer/>
+        </div>
       </Router>
     ); // return
   } // render

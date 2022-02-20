@@ -50,16 +50,16 @@ class NewUser extends React.Component{
         <br/>
         <input
           onChange={this.handleInput}
-          name="email"
-          type="email"
-          placeholder='Enter Email'
+          name="name"
+          type="name"
+          placeholder='Enter Name'
         />
         <br/>
         <input
           onChange={this.handleInput}
-          name="name"
-          type="name"
-          placeholder='Enter Name'
+          name="email"
+          type="email"
+          placeholder='Enter Email'
         />
         <br/>
         <input
