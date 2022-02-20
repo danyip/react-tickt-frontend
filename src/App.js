@@ -6,6 +6,7 @@ import {BASE_URL} from './apiBaseUrl'
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
 import AllEvents from './pages/AllEvents'
+import Event from "./pages/Event";
 
 
 class App extends React.Component{
@@ -72,6 +73,7 @@ class App extends React.Component{
           render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
           />
         <Route exact path='/events' component={AllEvents}/>
+        <Route exact path='/event/:id' component={Event}/>
       </Router>
     ); // return
   } // render
