@@ -19,6 +19,7 @@ class MyProfile extends React.Component{
       }
     })
     .then(res => {
+      console.log(res.data);
       this.setState({currentUser: res.data})
     })
     .catch(err => console.warn(err))

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Route, Link, HashRouter as Router} from 'react-router-dom';
+import {Route, Redirect, Link, HashRouter as Router} from 'react-router-dom';
 import {BASE_URL} from './apiBaseUrl'
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
@@ -38,6 +38,18 @@ class App extends React.Component{
     .catch(err => console.warn(err))
   }
 
+  loginUser = (request)=>{
+    axios.post(`${BASE_URL}/user_token`, {auth: request})
+        .then(result => {
+          localStorage.setItem("jwt", result.data.jwt)
+          axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
+          this.setCurrentUser();
+        })
+        .catch(err => {
+          console.warn(err)
+        })
+  }
+
   //function to log the user out.
   handleLogout = () => {
     this.setState({currentUser: undefined})
@@ -49,15 +61,23 @@ class App extends React.Component{
     return (
       <Router>
         <div>
-          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
+          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
           
           <Route exact path='/' component={Home}/>
-          <Route exact path='/new_user' component={NewUser}/>
+          <Route 
+            exact path='/new_user'
+            render={(props) => 
+              <NewUser 
+                loginUser={this.loginUser}
+                {...props}/>}
+          />
           <Route exact path='/my_profile' component={MyProfile}/>
           <Route
             exact path='/login'
-            render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
-            />
+            render={(props) => 
+            <Login loginUser={this.loginUser}
+            {...props}/>}
+          />
           <Route exact path='/events' component={AllEvents}/>
           <Route exact path='/event/:id' component={Event}/>
 
