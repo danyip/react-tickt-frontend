@@ -33,7 +33,7 @@ class NewUser extends React.Component{
       'user_level': this.state.userLevel
     }
 
-    axios.post(`${BASE_URL}/users`, newUser)
+    axios.post(`${BASE_URL}/users`, {user: newUser})
     .then(result => {
       console.log('created new account:', result);
     })
