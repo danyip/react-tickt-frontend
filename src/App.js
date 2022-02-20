@@ -4,6 +4,10 @@ import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
+import Routes from './Routes';
+
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 
 const BASE_URL = 'http://localhost:3000'
 
@@ -42,35 +46,24 @@ class App extends React.Component{
 
   render(){
     return (
-      <Router>
-        <header>
-          <nav>
-            {
-              this.state.currentUser !== undefined
-              ?
-              (
-                <ul>
-                  <li>Welcome {this.state.currentUser.name} | </li>
-                  <li><Link to='/my_profile'>My Profile</Link></li>
-                  <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>
-                </ul>
-              )
-              :
-              (
-                <ul>
-                  <li><Link to='/login'>Login</Link></li>
-                </ul>
-              )
-            }
-          </nav>
-          <hr/>
-        </header>
-        <Route exact path='/my_profile' component={MyProfile}/>
-        <Route
-          exact path='/login'
-          render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
-          />
-      </Router>
+      <div className="App">
+        <Router>
+
+          <Header currentUser={this.state.currentUser} />
+
+          
+          <Route exact path='/my_profile' component={MyProfile}/>
+          <Route
+            exact path='/login'
+            render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
+          /> 
+          
+          <p>Hello World!</p>
+
+          <Footer />
+
+        </Router>
+      </div>
     ); // return
   } // render
 } //class App
