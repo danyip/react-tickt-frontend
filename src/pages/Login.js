@@ -21,8 +21,6 @@ class Login extends React.Component{
   } //handleInput
 
 
-  
-
   //handle the submit of the login
   handleSubmit = (ev) => {
         const request = {'email': this.state.email, 'password': this.state.password}
