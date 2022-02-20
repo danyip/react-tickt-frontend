@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import {BASE_URL} from '../../apiBaseUrl'
 
-const BASE_URL = 'http://localhost:3000'
 
 class MyProfile extends React.Component{
   state = {

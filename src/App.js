@@ -1,15 +1,16 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
-
+import {BASE_URL} from './apiBaseUrl'
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
-import Routes from './Routes';
+import AllEvents from './pages/AllEvents'
+import NewUser from './pages/NewUser';
+import Event from "./pages/Event";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
-
-const BASE_URL = 'http://localhost:3000'
 
 class App extends React.Component{
 
@@ -46,24 +47,23 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="App">
-        <Router>
-
-          <Header currentUser={this.state.currentUser} />
-
+      <Router>
+        <div>
+          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
           
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/new_user' component={NewUser}/>
           <Route exact path='/my_profile' component={MyProfile}/>
           <Route
             exact path='/login'
             render={(props) => <Login setCurrentUser={this.setCurrentUser}{...props}/>}
-          /> 
-          
-          <p>Hello World!</p>
+            />
+          <Route exact path='/events' component={AllEvents}/>
+          <Route exact path='/event/:id' component={Event}/>
 
-          <Footer />
-
-        </Router>
-      </div>
+          <Footer/>
+        </div>
+      </Router>
     ); // return
   } // render
 } //class App
