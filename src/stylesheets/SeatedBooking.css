@@ -1,0 +1,9 @@
+.seated-booking-container{
+  max-width: 1240px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.seat-map-viewport{
+  border: 1px solid red;
+}

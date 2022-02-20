@@ -8,7 +8,7 @@ export default class EventComments extends Component {
         <div>
           {this.props.comments.map(comment=>{
             return(
-              <div>
+              <div key={comment.id}>
                 <h4>{comment.user.name}</h4>
                 <p>{comment.created_at}</p> {/* TODO: Make this display a "time since calc" */}
                 <p>{comment.text}</p>

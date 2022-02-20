@@ -3,11 +3,8 @@ import React from 'react'
 export default function EventInfo(props) {
   const event = {...props.event} 
   
-
-
-
   return (
-    <div>
+    <article>
       <h2>{event.name}</h2>
       <section>
         <h4>Event Description</h4>
@@ -34,7 +31,7 @@ export default function EventInfo(props) {
         <p>${event.price/100}</p>
       </section>
       <button>Purchase Tickets</button>
-    </div>
+    </article>
   )
 }
 
