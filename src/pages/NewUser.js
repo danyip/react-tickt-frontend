@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { BASE_URL } from "../apiBaseUrl";
+import { Redirect } from 'react-router-dom';
 
 
 class NewUser extends React.Component{
@@ -9,7 +10,8 @@ class NewUser extends React.Component{
     email: '',
     password: '',
     name: '',
-    userLevel: 1
+    userLevel: 1,
+    redirect: false
   }
 
   handleInput = (ev) => {
@@ -34,16 +36,26 @@ class NewUser extends React.Component{
     }
 
     axios.post(`${BASE_URL}/users`, {user: newUser})
-    .then(result => {
-      console.log('created new account:', result);
+    .then(res => {
+      console.log('created new account:', res);
+      const request = {'email': newUser.email, 'password': newUser.password}
+      this.props.loginUser(request)
+      this.setState({ redirect: "/my_profile" })
     })
     .catch(err => {
       console.log(err)
     })
+
+
     ev.preventDefault();
 } // handleSubmit()
 
   render(){
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
+
     return(
       <form onSubmit={this.handleSubmit}>
         <label>Create User</label>

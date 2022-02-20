@@ -19,6 +19,7 @@ class MyProfile extends React.Component{
       }
     })
     .then(res => {
+      console.log(res.data);
       this.setState({currentUser: res.data})
     })
     .catch(err => console.warn(err))
@@ -27,8 +28,8 @@ class MyProfile extends React.Component{
   render(){
     return(
       <div>
-        <h1>Hello {this.state.currentUser.name}</h1>
-        <h4>Your email is {this.state.currentUser.email}</h4>
+        <p>Hello {this.state.currentUser.name}</p>
+        <p>Your email is {this.state.currentUser.email}</p>
       </div>
     );
   }//render
