@@ -65,12 +65,20 @@ class App extends React.Component{
           <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
           
           <Route exact path='/' component={Home}/>
-          <Route exact path='/new_user' component={NewUser}/>
+          <Route 
+            exact path='/new_user'
+            render={(props) => 
+              <NewUser 
+                loginUser={this.loginUser}
+                {...props}/>}
+          />
           <Route exact path='/my_profile' component={MyProfile}/>
           <Route
             exact path='/login'
-            render={(props) => <Login loginUser={this.loginUser}{...props}/>}
-            />
+            render={(props) => 
+            <Login loginUser={this.loginUser}
+            {...props}/>}
+          />
           <Route exact path='/events' component={AllEvents}/>
           <Route exact path='/event/:id' component={Event}/>
 

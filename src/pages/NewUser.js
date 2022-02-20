@@ -34,12 +34,17 @@ class NewUser extends React.Component{
     }
 
     axios.post(`${BASE_URL}/users`, {user: newUser})
-    .then(result => {
-      console.log('created new account:', result);
+    .then(res => {
+      console.log('created new account:', res);
+      const request = {'email': newUser.email, 'password': newUser.password}
+      this.props.loginUser(request)
+      
     })
     .catch(err => {
       console.log(err)
     })
+
+
     ev.preventDefault();
 } // handleSubmit()
 
