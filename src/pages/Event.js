@@ -29,9 +29,18 @@ export default class Event extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.event.name}</h2>
-        <p> <strong>Date: </strong>{this.state.event.date}</p>
-        <p>{this.state.event.description}</p>
+        <div>REPLACE WITH EVENT IMAGE</div>
+        <div>REPLACE WITH MAP IFRAME</div>
+        <div>
+          <h2>{this.state.event.name}</h2>
+          <p>{this.state.event.description}</p>
+          <p> <strong>Date: </strong>{this.state.event.date}</p>
+        </div>
+        <div>
+          
+        </div>
+
+        
       </div>
     )
   }

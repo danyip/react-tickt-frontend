@@ -20,20 +20,15 @@ class Login extends React.Component{
     }
   } //handleInput
 
+
+  
+
   //handle the submit of the login
   handleSubmit = (ev) => {
         const request = {'email': this.state.email, 'password': this.state.password}
 
-        axios.post(`${BASE_URL}/user_token`, {auth: request})
-        .then(result => {
-          localStorage.setItem("jwt", result.data.jwt)
-          axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.jwt;
-          this.props.setCurrentUser();
-          this.props.history.push('/my_profile');
-        })
-        .catch(err => {
-          console.warn(err)
-        })
+        this.props.loginUser(request)
+        
         ev.preventDefault();
   } // handleSubmit()
 
