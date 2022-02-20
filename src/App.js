@@ -2,10 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 import {BASE_URL} from './apiBaseUrl'
-
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
 import AllEvents from './pages/AllEvents'
+import NewUser from './pages/NewUser';
 
 
 class App extends React.Component{
@@ -52,7 +52,7 @@ class App extends React.Component{
               (
                 <ul>
                   <li>Welcome {this.state.currentUser.name} | </li>
-                  <li><Link to='/my_profile'>My Profile</Link></li>
+                  <li><Link to='/my_profile'>My Profile</Link> | </li>
                   <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>
                 </ul>
               )
@@ -60,12 +60,14 @@ class App extends React.Component{
               (
                 <ul>
                   <li><Link to='/login'>Login</Link></li>
+                  <li><Link to='/new_user'>Create New Account</Link></li>
                 </ul>
               )
             }
           </nav>
           <hr/>
         </header>
+        <Route exact path='/new_user' component={NewUser}/>
         <Route exact path='/my_profile' component={MyProfile}/>
         <Route
           exact path='/login'
