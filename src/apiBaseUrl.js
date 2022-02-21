@@ -4,4 +4,6 @@
 
 export const BASE_URL = 'http://localhost:3000'
 
+export const GOOGLE_MAP_API_KEY = 'AIzaSyDHWmeIYCES8CEAHj2VQf-KKmTDoMYf0GU'
+
 // export const BASE_URL = 'insert heroku base url here'
