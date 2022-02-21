@@ -1,4 +1,5 @@
 import React from 'react'
+import {DateTime} from "luxon";
 
 export default function EventInfo(props) {
   const event = {...props.event} 
@@ -16,11 +17,11 @@ export default function EventInfo(props) {
       </section>
       <section>
         <h4>Date</h4>
-        <p>{event.date}</p> {/* TODO: Figure out how to format this.... */}
+        <p>{DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_SHORT)}</p>
       </section>
       <section>
         <h4>Time</h4>
-        <p>{event.time}</p> {/* TODO: Figure out how to format this.... */}
+        <p>{DateTime.fromISO(event.time).toLocaleString(DateTime.TIME_SIMPLE)}</p> {/* TODO: Figure out how to format this.... */}
       </section>
       <section>
         <h4>Tickets Left</h4>

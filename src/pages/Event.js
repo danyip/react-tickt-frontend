@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
 import '../stylesheets/style.css';
-import {DateTime} from "luxon";
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
@@ -56,7 +55,6 @@ export default class Event extends Component {
             <div>REPLACE WITH MAP IFRAME ONCE WE WORK OUT MAPS API</div>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
-            <p>{DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_SHORT)}</p>
             {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
             
           </div>
