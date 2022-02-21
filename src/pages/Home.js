@@ -5,7 +5,7 @@ import AllEventsMap from '../components/Events/AllEventsMap';
 export default class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="pages-wrapper">
         <h1>HOME PAGE</h1>
         <AllEventsMap />
       </div>

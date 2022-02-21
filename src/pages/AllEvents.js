@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
+import '../stylesheets/style.css';
 
 export default class AllEvents extends Component {
   state = {
@@ -30,7 +31,7 @@ export default class AllEvents extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pages-wrapper">
         {
           this.state.allEvents.map(event => {
             return(<article key={event.id}>

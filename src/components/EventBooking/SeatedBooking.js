@@ -48,7 +48,7 @@ export default class SeatedBooking extends Component {
   
   render() {
     return (
-      <div className='seated-booking-container'>
+      <div className='seated-booking-container' className="page-wrapper">
       hello
         <SeatMap seatingArray={this.state.seatingArray}/>
         <SeatSelection/>      

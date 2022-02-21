@@ -2,10 +2,14 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
 import '../stylesheets/style.css';
+import '../stylesheets/event.css';
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
 import SingleEventMap from '../components/Events/SingleEventMap';
+import {DateTime} from "luxon";
+
+
 export default class Event extends Component {
 
   state = {
@@ -45,19 +49,31 @@ export default class Event extends Component {
   render() {
 
     return (
-      <div>
+      <div className="pages-wrapper">
         {
           this.state.loading
           ?
           <div>Loading...</div>
           :
           <div>
-            <div>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</div>
-            <SingleEventMap venue={this.state.event.venue}/>
-            <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
-            <EventComments comments={this.state.event.comments}/>
-            {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
+            <h3>{this.state.event.name}</h3>
+            <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
+            <div className="image-map-container">
+              <div className="event-image"><p>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</p></div>
+              <SingleEventMap className="event-map" venue={this.state.event.venue} />
+            </div>
+
+            <div className="event-info-comments-container">
+              <div className="event-info">
+                <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
+              </div>
+              <div className="event-comments">
+                <EventComments comments={this.state.event.comments} />
+              </div>
+            </div>
+              {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
+
           </div>
         }
       </div>

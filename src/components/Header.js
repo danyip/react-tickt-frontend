@@ -17,7 +17,7 @@ class Header extends React.Component {
         <nav>
           <ul className="main-nav">
 
-          <li><h1><Link to='/'>Tickt</Link></h1></li>
+          <li><h1><Link to='/'>tickt</Link></h1></li>
           <li><Link to='/events'>All Events </Link></li>
 
           {currentUser &&  <li className="push"><Link to="/my_profile">My Profile </Link></li>}
