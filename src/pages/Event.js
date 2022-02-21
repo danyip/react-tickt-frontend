@@ -40,31 +40,12 @@ export default class Event extends Component {
     console.log(this.props.match.params.id);
     
   }
-<<<<<<< HEAD
   
-=======
 
-
->>>>>>> b7b34c87a14ce70b05e486b1379dae6ba953500b
   render() {
 
     return (
       <div>
-<<<<<<< HEAD
-
-        <div>REPLACE WITH EVENT IMAGE</div>
-        <div>REPLACE WITH MAP IFRAME</div>
-        <div>
-          <h2>{this.state.event.name}</h2>
-          <p>{this.state.event.description}</p>
-          <p> <strong>Date: </strong>{DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_SHORT)}</p>
-        </div>
-        <div>
-          
-        </div>
-
-        
-=======
         {
           this.state.loading
           ?
@@ -75,11 +56,11 @@ export default class Event extends Component {
             <div>REPLACE WITH MAP IFRAME ONCE WE WORK OUT MAPS API</div>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
+            <p>{DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_SHORT)}</p>
             {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
             
           </div>
         }
->>>>>>> b7b34c87a14ce70b05e486b1379dae6ba953500b
       </div>
     )
   }
