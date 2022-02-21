@@ -37,15 +37,13 @@ class NewUser extends React.Component{
 
     axios.post(`${BASE_URL}/users`, {user: newUser})
     .then(res => {
-      console.log('created new account:', res);
       const request = {'email': newUser.email, 'password': newUser.password}
       this.props.loginUser(request)
-      this.setState({ redirect: "/my_profile" })
+      this.setState({ redirect: "/" })
     })
     .catch(err => {
       console.log(err)
     })
-
 
     ev.preventDefault();
 } // handleSubmit()
