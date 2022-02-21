@@ -61,6 +61,7 @@ class App extends React.Component{
     return (
       <Router>
         <div>
+
           <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
           
           <Route exact path='/' component={Home}/>
