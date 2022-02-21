@@ -6,7 +6,7 @@ export default class Seat extends Component {
     console.log('clicked', this.props.seat.hold);
     this.props.seat.hold
     ? 
-    console.log('hold') //TODO: insert removehold function here
+    this.props.removeFromNewTickets(this.props.seat.row, this.props.seat.column)
     : 
     this.props.addNewTicket(this.props.seat.row, this.props.seat.column)
     

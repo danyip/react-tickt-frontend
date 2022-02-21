@@ -65,14 +65,33 @@ export default class SeatedBooking extends Component {
 
     const newSeatingArray = this.state.seatingArray.slice()
     newSeatingArray[row][column].hold = true
-
     this.setState({seatingArray: newSeatingArray})
   }
+
+  removeFromNewTickets = (row, column) => {
+
+    const copyNewTickets = this.state.newTickets.slice()
+
+    this.setState({newTickets: copyNewTickets.filter(hold => {
+      return !(hold.seat_row === row && hold.seat_column === column)
+    })})
+
+    const newSeatingArray = this.state.seatingArray.slice()
+    newSeatingArray[row][column].hold = false
+    this.setState({seatingArray: newSeatingArray})
+
+  }
+
+
 
   render() {
     return (
       <div className='seated-booking-container'>
-        <SeatMap seatingArray={this.state.seatingArray} addNewTicket={this.addNewTicket}/>
+        <SeatMap 
+          seatingArray={this.state.seatingArray} 
+          addNewTicket={this.addNewTicket}
+          removeFromNewTickets={this.removeFromNewTickets}
+        />
         <SeatSelection newTickets={this.state.newTickets}/>      
       </div>
     )
