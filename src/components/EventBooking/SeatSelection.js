@@ -5,14 +5,18 @@ export default class SeatSelection extends Component {
     return (
       <div>
         Selected Seats:
-        {this.props.newTickets.map(newTicket=>{
-          return(
-            <li key={`${newTicket.seat_row}${newTicket.seat_column}`}>
-            {String.fromCharCode(newTicket.seat_row+65)}{newTicket.seat_column + 1}
-            </li>
-          )
-        })
-        }
+        
+        <ul>
+          {this.props.newTickets.map(newTicket=>{
+            return(
+              <li key={`${newTicket.seat_row}${newTicket.seat_column}`}>
+              {String.fromCharCode(newTicket.seat_row+65)}{newTicket.seat_column + 1}
+              </li>
+            )
+          })
+          }
+        </ul>
+        <button onClick={()=>this.props.purchaseTickets()}>Purchase</button>
       </div>
     )
   }

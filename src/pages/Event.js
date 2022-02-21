@@ -35,8 +35,8 @@ export default class Event extends Component {
 
   componentDidMount(){
     this.fetchOneEvent()
-    console.log(this.props.match.params.id);
   }
+
 
 
   render() {
@@ -53,7 +53,11 @@ export default class Event extends Component {
             <div>REPLACE WITH MAP IFRAME ONCE WE WORK OUT MAPS API</div>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
-            {!this.state.event.event_type && <SeatedBooking event={this.state.event} currentUser={this.props.currentUser}/>}
+            {!this.state.event.event_type && <SeatedBooking 
+                                                event={this.state.event} 
+                                                currentUser={this.props.currentUser} 
+                                                fetchOneEvent={this.fetchOneEvent} 
+                                                history={this.props.history}/>}
             
           </div>
         }

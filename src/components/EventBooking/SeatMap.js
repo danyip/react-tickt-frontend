@@ -6,7 +6,9 @@ export default class SeatMap extends Component {
   render() {
     return (
       <div className='seat-map-viewport'>
+
       <div className='stage'>Stage</div>
+      
         {this.props.seatingArray.map((row, rowIndex)=>{
           return(
             <div key={rowIndex} className='seat-row'>

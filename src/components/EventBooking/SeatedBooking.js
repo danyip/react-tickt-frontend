@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import SeatMap from './SeatMap'
 import SeatSelection from './SeatSelection'
 import '../../stylesheets/SeatedBooking.css'
+import axios from 'axios'
+import { BASE_URL } from '../../apiBaseUrl'
 
 export default class SeatedBooking extends Component {
 
@@ -13,47 +15,38 @@ export default class SeatedBooking extends Component {
 
   componentDidMount(){
     this.generateSeatingArray()
+    console.log();
+    
   };
 
+  // Creates a nested array of seats
   generateSeatingArray = ()=>{
     
     const rows = this.props.event.venue.seat_rows
     const cols = this.props.event.venue.seat_columns
     
+    const seatingArray = []
 
-    const emptySeatingArray = []
-
-    for(let i = 0; i < rows; i++){
+    for(let i = 0; i < rows; i++){ // Create an array for each row
       const rowArr = []
       
-      for(let j = 0; j < cols; j++){
+      for(let j = 0; j < cols; j++){ // Fill each row with seatData
         const seatData = {ticket: {}, hold: false, row: i, column: j}
         rowArr.push(seatData)
       };
 
-      emptySeatingArray.push(rowArr)
+      seatingArray.push(rowArr) // populate the parent array with the rows
     }
-
-    // Populate the emptySeatingArray array (2D array) with each of the ticket objects
-    const filledSeatingArray = this.populateBookedSeats(emptySeatingArray)
-
-    console.log('filled seating array', filledSeatingArray);
-
-    this.setState({seatingArray: emptySeatingArray})
-  }
-
-  populateBookedSeats = (seatingArray)=>{
-    const populatedArray = seatingArray.slice()
-
-    const tickets = this.props.event.tickets
     
-    tickets.forEach(ticket => {
-      populatedArray[ticket.seat_row][ticket.seat_column].ticket = ticket
+    // Loop though all the tickets and populate them into the seating array
+    this.props.event.tickets.forEach(ticket => {
+      seatingArray[ticket.seat_row][ticket.seat_column].ticket = ticket
     });
 
-    return seatingArray
+    this.setState({seatingArray: seatingArray})
   }
 
+  // Adds a new ticket object to the array of new tickets in state and sets the seat hold to true
   addNewTicket = (row, column) => {
     const newTicket = {
       event_id: this.props.event.id,
@@ -63,11 +56,12 @@ export default class SeatedBooking extends Component {
     }
     this.setState({newTickets: [newTicket, ...this.state.newTickets]})
 
-    const newSeatingArray = this.state.seatingArray.slice()
+    const newSeatingArray = this.state.seatingArray.slice() //TODO: look into changing this, slice doesn't copy 2D array
     newSeatingArray[row][column].hold = true
-    this.setState({seatingArray: newSeatingArray})
+    this.setState({seatingArray: newSeatingArray}) 
   }
 
+  // Removes a ticket from the array of new tickets in state and sets the seat hold to false
   removeFromNewTickets = (row, column) => {
 
     const copyNewTickets = this.state.newTickets.slice()
@@ -76,13 +70,24 @@ export default class SeatedBooking extends Component {
       return !(hold.seat_row === row && hold.seat_column === column)
     })})
 
-    const newSeatingArray = this.state.seatingArray.slice()
+    const newSeatingArray = this.state.seatingArray.slice() //TODO: look into changing this, slice doesn't copy 2D array
     newSeatingArray[row][column].hold = false
     this.setState({seatingArray: newSeatingArray})
 
   }
 
+  purchaseTickets = async ()=>{
 
+    try {
+      const res = await axios.post(`${BASE_URL}/tickets`, this.state.newTickets)
+      console.log('purchaseTickets()', res.data);
+      this.props.history.push('/') //TODO: Make this redirect to the tickets
+      
+    } catch (err) {
+      console.log('Error purchaseTickets()', err);
+    }
+    
+  }
 
   render() {
     return (
@@ -92,7 +97,10 @@ export default class SeatedBooking extends Component {
           addNewTicket={this.addNewTicket}
           removeFromNewTickets={this.removeFromNewTickets}
         />
-        <SeatSelection newTickets={this.state.newTickets}/>      
+        <SeatSelection 
+          newTickets={this.state.newTickets}
+          purchaseTickets={this.purchaseTickets}
+        />      
       </div>
     )
   }
