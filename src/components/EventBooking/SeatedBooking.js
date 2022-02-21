@@ -7,7 +7,8 @@ export default class SeatedBooking extends Component {
 
   
   state = {
-    seatingArray: []
+    seatingArray: [],
+    newTickets: []
   }
 
   componentDidMount(){
@@ -20,7 +21,7 @@ export default class SeatedBooking extends Component {
     const cols = this.props.event.venue.seat_columns
     
 
-    const seatingArray = []
+    const emptySeatingArray = []
 
     for(let i = 0; i < rows; i++){
       const rowArr = []
@@ -30,36 +31,49 @@ export default class SeatedBooking extends Component {
         rowArr.push(seatData)
       };
 
-      seatingArray.push(rowArr)
+      emptySeatingArray.push(rowArr)
     }
 
-    // Populate the seatingArray array (2D array) with each of the ticket objects
-    
-  
-    this.setState({seatingArray: seatingArray})
+    // Populate the emptySeatingArray array (2D array) with each of the ticket objects
+    const filledSeatingArray = this.populateBookedSeats(emptySeatingArray)
+
+    console.log('filled seating array', filledSeatingArray);
+
+    this.setState({seatingArray: emptySeatingArray})
   }
 
   populateBookedSeats = (seatingArray)=>{
+    const populatedArray = seatingArray.slice()
+
     const tickets = this.props.event.tickets
     
     tickets.forEach(ticket => {
-      seatingArray[ticket.seat_row][ticket.seat_column].ticket = ticket
+      populatedArray[ticket.seat_row][ticket.seat_column].ticket = ticket
     });
+
+    return seatingArray
   }
 
-  applyHolds = ()=>{
+  addNewTicket = (row, column) => {
+    const newTicket = {
+      event_id: this.props.event.id,
+      user_id: this.props.currentUser.id,
+      seat_row: row,
+      seat_column: column
+    }
+    this.setState({newTickets: [newTicket, ...this.state.newTickets]})
 
+    const newSeatingArray = this.state.seatingArray.slice()
+    newSeatingArray[row][column].hold = true
+
+    this.setState({seatingArray: newSeatingArray})
   }
-  
 
-  
-  
   render() {
     return (
       <div className='seated-booking-container'>
-      hello
-        <SeatMap seatingArray={this.state.seatingArray}/>
-        <SeatSelection/>      
+        <SeatMap seatingArray={this.state.seatingArray} addNewTicket={this.addNewTicket}/>
+        <SeatSelection newTickets={this.state.newTickets}/>      
       </div>
     )
   }

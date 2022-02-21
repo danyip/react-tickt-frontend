@@ -86,7 +86,15 @@ class App extends React.Component{
               {...props}/>}
           />
           <Route exact path='/events' component={AllEvents}/>
-          <Route exact path='/event/:id' component={Event}/>
+          
+          <Route 
+            exact path='/event/:id' 
+            render={(props) =>
+            <Event currentUser={this.state.currentUser}
+            {...props}/>}
+          />
+            
+            
 
           <Footer/>
         </div>

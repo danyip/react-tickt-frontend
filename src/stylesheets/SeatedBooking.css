@@ -2,13 +2,12 @@
   max-width: 1240px;
   margin: 0 auto;
   border: 1px solid red;
+  display: flex;
 }
 
 .seat-map-viewport{
   border: 1px solid red;
   width: fit-content;
-  /* width: 600px;
-  overflow: scroll; */
 }
 
 .stage{
@@ -21,11 +20,9 @@
 
 .seat-row{
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 0.3rem;
   width: fit-content;
   margin: 1rem 0;
-  
 }
 
 .seat{
@@ -45,4 +42,14 @@
   position: absolute;
   top: 1.6rem;
   left: 0;
+}
+
+.available{
+  background-color: green;
+}
+.booked{
+  background-color: grey;
+}
+.held{
+  background-color: blue;
 }

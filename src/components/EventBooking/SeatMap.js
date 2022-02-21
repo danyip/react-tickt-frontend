@@ -12,7 +12,7 @@ export default class SeatMap extends Component {
             <div key={rowIndex} className='seat-row'>
               {row.map((seat, seatIndex)=>{
                 return(
-                  <Seat key={seatIndex} seat={seat}/>
+                  <Seat key={seatIndex} seat={seat} addNewTicket={this.props.addNewTicket}/>
                   )
               })}
             </div>

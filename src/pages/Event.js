@@ -53,7 +53,7 @@ export default class Event extends Component {
             <div>REPLACE WITH MAP IFRAME ONCE WE WORK OUT MAPS API</div>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
-            {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
+            {!this.state.event.event_type && <SeatedBooking event={this.state.event} currentUser={this.props.currentUser}/>}
             
           </div>
         }
