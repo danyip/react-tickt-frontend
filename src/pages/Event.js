@@ -4,6 +4,7 @@ import { BASE_URL } from '../apiBaseUrl';
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
+import SingleEventMap from '../components/Events/SingleEventMap';
 export default class Event extends Component {
 
   state = {
@@ -50,7 +51,7 @@ export default class Event extends Component {
           :
           <div>
             <div>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</div>
-            <div>REPLACE WITH MAP IFRAME ONCE WE WORK OUT MAPS API</div>
+            <SingleEventMap venue={this.state.event.venue}/>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
             <SeatedBooking event={this.state.event}/>
