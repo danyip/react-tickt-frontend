@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
+import {DateTime} from "luxon";
 
 export default class EventComments extends Component {
   
   render() {
+    window.dt=DateTime;
     return (
       <section>
         <div>
           {this.props.comments.map(comment=>{
+        console.log("created......",comment.created_at)
             return(
               <div key={comment.id}>
                 <h4>{comment.user.name}</h4>
-                <p>{comment.created_at}</p> {/* TODO: Make this display a "time since calc" */}
                 <p>{comment.text}</p>
+                <p>{`
+                  ${DateTime.fromISO(comment.created_at).toLocaleString(DateTime.DATETIME_SHORT)} (${DateTime.fromISO(comment.created_at).toRelative()}) 
+                  `}</p>
               </div>
             )
           })}
