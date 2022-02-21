@@ -15,7 +15,8 @@ export default class AllEventsMap extends Component {
     center: {
       lat: null,
       lng: null
-    }
+    },
+    loading: true
   }
   
   componentDidMount(){
@@ -31,26 +32,46 @@ export default class AllEventsMap extends Component {
   }
 
   showPosition = (pos) => {
+    
     this.setState({
-      center: {lat: pos.coords.latitude, lng: pos.coords.longitude}
+      center: {
+        lat: pos.coords.latitude, 
+        lng: pos.coords.longitude
+      }, loading: false
     })
   }
 
   render() {
+
+    
+
+
     return (
-      <LoadScript
-        googleMapsApiKey={GOOGLE_MAP_API_KEY}
-      >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={this.state.center}
-          zoom={14}
-          clickableIcons={false}
-        >
-          { /* Child components, such as markers, info windows, etc. */ }
-          <></>
-        </GoogleMap>
-      </LoadScript>
+      <div>
+        {
+          this.state.loading
+          ?
+          <div>
+            loading
+          </div>
+          :
+          <div>
+            <LoadScript
+              googleMapsApiKey={GOOGLE_MAP_API_KEY}
+            >
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={this.state.center}
+                zoom={14}
+                clickableIcons={false}
+              >
+                { /* Child components, such as markers, info windows, etc. */ }
+                <></>
+              </GoogleMap>
+            </LoadScript>
+          </div>
+        }
+      </div>
     )
   }
 }
