@@ -28,7 +28,7 @@ class Login extends React.Component{
         const request = {'email': this.state.email, 'password': this.state.password}
 
         this.props.loginUser(request)
-        this.setState({ redirect: "/my_profile" })
+        this.setState({ redirect: "/" })
         
         ev.preventDefault();
   } // handleSubmit()
