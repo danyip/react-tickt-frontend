@@ -23,14 +23,12 @@ class Login extends React.Component{
   } //handleInput
 
 
-  
-
   //handle the submit of the login
   handleSubmit = (ev) => {
         const request = {'email': this.state.email, 'password': this.state.password}
 
         this.props.loginUser(request)
-        this.setState({ redirect: "/my_profile" })
+        this.setState({ redirect: "/" })
         
         ev.preventDefault();
   } // handleSubmit()

@@ -1,0 +1,48 @@
+.seated-booking-container{
+  max-width: 1240px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.seat-map-viewport{
+  border: 1px solid red;
+  width: fit-content;
+  /* width: 600px;
+  overflow: scroll; */
+}
+
+.stage{
+  width: 30%;
+  border: 1px solid black;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.seat-row{
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 0.3rem;
+  width: fit-content;
+  margin: 1rem 0;
+  
+}
+
+.seat{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.45rem;
+  border: 1px solid black;
+  text-align: center;
+  position: relative;
+}
+
+.seat::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+}
