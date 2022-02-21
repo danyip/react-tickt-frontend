@@ -17,11 +17,11 @@ export default function EventInfo(props) {
       </section>
       <section>
         <h4>Date</h4>
-        <p>{DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_SHORT)}</p>
+        <p>{DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_HUGE)}</p>
       </section>
       <section>
         <h4>Time</h4>
-        <p>{DateTime.fromISO(event.time).toLocaleString(DateTime.TIME_SIMPLE)}</p> {/* TODO: Figure out how to format this.... */}
+        <p>{DateTime.fromISO(event.time).toLocaleString({ hour:'numeric', minute: 'numeric' , timeZoneName: 'long' })}</p>
       </section>
       <section>
         <h4>Tickets Left</h4>
