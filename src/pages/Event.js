@@ -41,10 +41,9 @@ export default class Event extends Component {
 
   componentDidMount(){
     this.fetchOneEvent()
-    console.log(this.props.match.params.id);
-    
   }
   
+
 
   render() {
 
@@ -72,7 +71,11 @@ export default class Event extends Component {
                 <EventComments comments={this.state.event.comments} />
               </div>
             </div>
-              {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
+            {!this.state.event.event_type && <SeatedBooking 
+                                                event={this.state.event} 
+                                                currentUser={this.props.currentUser} 
+                                                fetchOneEvent={this.fetchOneEvent} 
+                                                history={this.props.history}/>}
 
           </div>
         }
