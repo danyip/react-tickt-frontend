@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
+import '../stylesheets/style.css';
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
@@ -37,8 +38,9 @@ export default class Event extends Component {
   componentDidMount(){
     this.fetchOneEvent()
     console.log(this.props.match.params.id);
+    
   }
-
+  
 
   render() {
 
@@ -54,7 +56,8 @@ export default class Event extends Component {
             <SingleEventMap venue={this.state.event.venue}/>
             <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft}/>
             <EventComments comments={this.state.event.comments}/>
-            <SeatedBooking event={this.state.event}/>
+            {!this.state.event.event_type && <SeatedBooking event={this.state.event}/>}
+            
           </div>
         }
       </div>
