@@ -10,7 +10,7 @@ import Event from "./pages/Event";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-
+import './stylesheets/style.css';
 
 class App extends React.Component{
 
@@ -62,8 +62,10 @@ class App extends React.Component{
       <Router>
         <div>
 
-          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
-          
+        <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
+
+        <div className="page-wrapper">  
+
           <Route exact path='/' component={Home}/>
           <Route 
             exact path='/new_user'
@@ -89,7 +91,8 @@ class App extends React.Component{
           <Route exact path='/events' component={AllEvents}/>
           <Route exact path='/event/:id' component={Event}/>
 
-          <Footer/>
+        </div>
+        <Footer/>
         </div>
       </Router>
     ); // return

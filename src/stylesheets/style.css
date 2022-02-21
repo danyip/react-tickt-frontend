@@ -1,3 +1,50 @@
-body {
-    margin: 150 100 0 100;
+.page-wrapper {
+    margin: 0 100px 0 100px;
+    max-width: 1920px;
+}
+
+h2 {
+    font-family:apparat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    color: #330400;
+}
+
+h3 {
+    font-family:apparat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: #330400;
+    margin-top: 48px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-family:apparat, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #330400;
+}
+
+h5 {
+    font-family: nunito, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 140%;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    font-family: nunito, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 145%;
+    margin-top: 0;
+    margin-bottom: 20px;
 }

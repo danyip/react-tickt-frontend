@@ -7,7 +7,7 @@ export default class SingleEventMap extends Component {
       <div>
         <iframe 
           width="600" 
-          height="450" 
+          height="400" 
           style={{border: "0"}} 
           loading="lazy" 
           src={`https://www.google.com/maps/embed/v1/place?q=${this.props.venue.address}&key=${GOOGLE_MAP_API_KEY}`}>  

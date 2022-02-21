@@ -1,13 +1,13 @@
 body {
-    font-family: nunito, sans-serif;
-    font-weight: 400;
-    font-style: normal;
     margin: 0;
     padding: 0;
 }
 
 header {
-    height: 150px;
+    font-family: nunito, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 90px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ header {
 
 .main-nav {
     display: flex;
-    height: 120px;
+    height: 90px;
     margin: 0;
     padding: 0;
     list-style: none;

@@ -9,10 +9,9 @@ export default class EventComments extends Component {
       <section>
         <div>
           {this.props.comments.map(comment=>{
-        console.log("created......",comment.created_at)
             return(
               <div key={comment.id}>
-                <h4>{comment.user.name}</h4>
+                <h5>{comment.user.name}</h5>
                 <p>{comment.text}</p>
                 <p>{`
                   ${DateTime.fromISO(comment.created_at).toLocaleString(DateTime.DATETIME_SHORT)} (${DateTime.fromISO(comment.created_at).toRelative()}) 
@@ -20,7 +19,7 @@ export default class EventComments extends Component {
               </div>
             )
           })}
-          <form>{/* TODO: Look into replacing this with something more slick */}
+          <form>{/* TODO: Look into replacing this with something more slick with EMOJIS */}
             <textarea name="comment" id="comment" cols="30" rows="3" placeholder='Write a comment'></textarea>
             <button>Submit</button>
           </form>
