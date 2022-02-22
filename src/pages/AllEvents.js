@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
 import '../stylesheets/style.css';
+import {AdvancedImage} from '@cloudinary/react';
+import { cld } from "../cld";
+import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
 
 export default class AllEvents extends Component {
   state = {
@@ -30,11 +33,20 @@ export default class AllEvents extends Component {
   }
 
   render() {
+
+
     return (
       <div className="pages-wrapper">
         {
           this.state.allEvents.map(event => {
-            return(<article key={event.id}>
+            return(
+            <article key={event.id}>
+              
+            <AdvancedImage cldImg={ cld.image(event.image)
+                                        .resize(thumbnail()
+                                        .width(150)
+                                        .height(150))} 
+            />
               <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>
               <p>{event.description}</p>

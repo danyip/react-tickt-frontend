@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Confirmation from "./pages/Confirmation";
+import AllEventsMap from './components/Events/AllEventsMap';
 import './stylesheets/style.css';
 
 class App extends React.Component{
@@ -91,6 +92,8 @@ class App extends React.Component{
               {...props}/>}
           />
           <Route exact path='/events' component={AllEvents}/>
+
+          <Route exact path='/find_event' component={AllEventsMap} />
           
           <Route 
             exact path='/event/:id' 

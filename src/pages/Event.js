@@ -6,8 +6,16 @@ import '../stylesheets/event.css';
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
+import StandingBooking from '../components/EventBooking/StandingBooking';
 import SingleEventMap from '../components/Events/SingleEventMap';
 import {DateTime} from "luxon";
+import {AdvancedImage} from '@cloudinary/react';
+import { cld } from "../cld";
+import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
+
+// Import any actions required for transformations.
+import {fill} from "@cloudinary/url-gen/actions/resize";
+
 
 
 export default class Event extends Component {
@@ -19,7 +27,7 @@ export default class Event extends Component {
       tickets:[],
       comments:[]
     },
-    ticketsLeft: 0
+    ticketsLeft: 0,
   }
 
   fetchOneEvent = async ()=>{
@@ -41,12 +49,22 @@ export default class Event extends Component {
 
   componentDidMount(){
     this.fetchOneEvent()
+    
   }
   
+  // Adds a new comment to state after posting to server
+  newComment = (newComment)=>{
+    let {event} = this.state
+    event.comments.push(newComment)
+    this.setState({event: event} )
+  }
 
 
   render() {
-
+    const myImage = cld.image(this.state.event.image);
+    myImage.resize(thumbnail().width(300).height(300)) 
+    
+     
     return (
       <div className="pages-wrapper">
         {
@@ -59,24 +77,33 @@ export default class Event extends Component {
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
             <div className="image-map-container">
-              <div className="event-image"><p>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</p></div>
+              <div className="event-image"><AdvancedImage cldImg={myImage} /></div>
               <SingleEventMap className="event-map" venue={this.state.event.venue} />
             </div>
-
             <div className="event-info-comments-container">
               <div className="event-info">
                 <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
               </div>
               <div className="event-comments">
-                <EventComments comments={this.state.event.comments} />
+                <EventComments 
+                  comments={this.state.event.comments} 
+                  currentUser={this.props.currentUser}
+                  eventId={this.state.event.id}
+                  newComment={this.newComment}
+                  />
               </div>
             </div>
-            {!this.state.event.event_type && <SeatedBooking 
+            {this.state.event.event_type === 0 && <SeatedBooking 
                                                 event={this.state.event} 
                                                 currentUser={this.props.currentUser} 
                                                 fetchOneEvent={this.fetchOneEvent} 
                                                 history={this.props.history}/>}
 
+            {this.state.event.event_type === 1 && <StandingBooking 
+                                                event={this.state.event} 
+                                                currentUser={this.props.currentUser} 
+                                                fetchOneEvent={this.fetchOneEvent} 
+                                                history={this.props.history}/>}
           </div>
         }
       </div>

@@ -7,7 +7,6 @@ export default class Home extends Component {
     return (
       <div className="pages-wrapper">
         <h1>HOME PAGE</h1>
-        <AllEventsMap />
       </div>
     )
   }

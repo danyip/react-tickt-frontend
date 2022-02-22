@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
-import { GOOGLE_MAP_API_KEY } from '../../apiBaseUrl';
+import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { BASE_URL, GOOGLE_MAP_API_KEY } from '../../apiBaseUrl';
+import axios from 'axios';
+import Login from '../../pages/Login';
 
 
 const containerStyle = {
@@ -16,7 +18,10 @@ export default class AllEventsMap extends Component {
       lat: null,
       lng: null
     },
-    loading: true
+    loading: true,
+    events: [],
+    venues: [],
+    venuePositions: []
   }
   
   componentDidMount(){
@@ -39,12 +44,36 @@ export default class AllEventsMap extends Component {
         lng: pos.coords.longitude
       }, loading: false
     })
+    const position = [pos.coords.latitude, pos.coords.longitude]
+    this.fetchAllVenues(position)
+  }
+
+  fetchAllVenues = async (position)=>{
+    const url = `${BASE_URL}/venues`
+
+    try {
+      const res = await axios.get(url, {params: position})
+      console.log('fetchAllVenues()',res.data);
+      this.setState({venues: res.data})
+      this.getVenuePositions();
+    } catch (err) {
+      console.log('ERROR FETCHING ALL VENUES: ', err);
+    }
+  }
+
+  getVenuePositions = () => {
+    const venueArr = this.state.venues.map(ev => {
+      const position = {
+        lat: parseFloat(ev.latitude), 
+        lng: parseFloat(ev.longitude)
+      }
+      return position
+    })
+    console.log(venueArr);
+    this.setState({venuePositions: venueArr})
   }
 
   render() {
-
-    
-
 
     return (
       <div>
@@ -52,7 +81,7 @@ export default class AllEventsMap extends Component {
           this.state.loading
           ?
           <div>
-            loading
+            Loading Map...
           </div>
           :
           <div>
@@ -62,15 +91,37 @@ export default class AllEventsMap extends Component {
               <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={this.state.center}
-                zoom={14}
+                zoom={12}
                 clickableIcons={false}
-              >
-                { /* Child components, such as markers, info windows, etc. */ }
+                >
+                {
+                  this.state.venuePositions.map((pos, i) => {
+                    return (
+                    <Marker 
+                      key={i}
+                      position={pos}
+                    />
+                  )})
+                }
                 <></>
               </GoogleMap>
             </LoadScript>
           </div>
         }
+        <article>
+          {
+            this.state.venues.map((ven) => {
+              return(
+                <div key={ven.id}>
+                  <h4>{ven.name}</h4>
+                  <p>{ven.address}</p>
+                  <p>Number of events: {ven.events.length}</p>
+
+                </div>
+              )
+            })
+          }
+        </article>
       </div>
     )
   }

@@ -1,7 +1,11 @@
 import React from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { BASE_URL } from "../apiBaseUrl";
 import { Redirect } from 'react-router-dom';
+import '../stylesheets/User.css';
+
+
+
 
 
 class NewUser extends React.Component{
@@ -11,7 +15,10 @@ class NewUser extends React.Component{
     password: '',
     name: '',
     userLevel: 1,
-    redirect: false
+    redirect: false,
+    imageUrl: null,
+    imageAlt: null,
+
   }
 
   handleInput = (ev) => {
@@ -32,7 +39,9 @@ class NewUser extends React.Component{
       'name': this.state.name,
       'email': this.state.email,
       'password': this.state.password,
-      'user_level': this.state.userLevel
+      'user_level': this.state.userLevel,
+      'image': this.state.publicId
+      
     }
 
     axios.post(`${BASE_URL}/users`, {user: newUser})
@@ -48,7 +57,46 @@ class NewUser extends React.Component{
     ev.preventDefault();
 } // handleSubmit()
 
+ handleImageUpload =  () => {
+  const { files } = document.querySelector('input[type="file"]')
+  const formData = new FormData();
+  formData.append('file', files[0]);
+// replace this with your upload preset name
+  formData.append('upload_preset', 'Tickt_profileImg');
+  const options = {
+    method: 'POST',
+    body: formData,
+  };
+
+  // replace cloudname with your Cloudinary cloud_name
+  return  fetch('https://api.Cloudinary.com/v1_1/tickt-project22/image/upload', options)
+  .then(res => res.json())
+  .then(res => console.log("Clodinary image response" , res))
+  .catch(err => console.log(err));
+
+ }
+
+ openWidget = (ev) => {
+   ev.preventDefault();
+  window.cloudinary.createUploadWidget(
+    {
+      cloudName: 'tickt-project22',
+      uploadPreset: 'Tickt_profileImg',
+    },
+    (error, { event, info }) => {
+      if (event === 'success') {
+        console.log("inside the widget function" , info);
+        this.setState({
+          publicId: info.public_id,
+          imageUrl: info.secure_url,
+          imageAlt: `An image of ${info.original_filename}`
+        })
+      }
+    },
+  ).open();
+};
   render(){
+    const { imageUrl, imageAlt } = this.state;
 
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
@@ -79,7 +127,15 @@ class NewUser extends React.Component{
           placeholder='Enter Password'
         />
         <br/>
-
+        <p>Upload profile image</p>
+        
+        
+        <button onClick={this.openWidget}>Upload Photo</button>
+        <br/>
+        {imageUrl && (
+            <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
+          )}
+        <br/>
         <button>Sign Up</button>
       </form>
     )
