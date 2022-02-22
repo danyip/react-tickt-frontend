@@ -13,9 +13,10 @@ export default class EventComments extends Component {
               <div key={comment.id}>
                 <h5>{comment.user.name}</h5>
                 <p>{comment.text}</p>
-                <p>{`
-                  ${DateTime.fromISO(comment.created_at).toLocaleString(DateTime.DATETIME_SHORT)} (${DateTime.fromISO(comment.created_at).toRelative()}) 
-                  `}</p>
+                <p className="comment-time">{
+                  // DateTime.fromISO(comment.created_at).toLocaleString(DateTime.DATETIME_SHORT)
+                  DateTime.fromISO(comment.created_at).toRelative()
+                  }</p>
               </div>
             )
           })}
