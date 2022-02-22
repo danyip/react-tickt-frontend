@@ -6,6 +6,7 @@ import '../stylesheets/event.css';
 import EventInfo from '../components/Events/EventInfo'
 import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
+import StandingBooking from '../components/EventBooking/StandingBooking';
 import SingleEventMap from '../components/Events/SingleEventMap';
 import {DateTime} from "luxon";
 
@@ -84,6 +85,11 @@ export default class Event extends Component {
               </div>
             </div>
             {!this.state.event.event_type && <SeatedBooking 
+                                                event={this.state.event} 
+                                                currentUser={this.props.currentUser} 
+                                                fetchOneEvent={this.fetchOneEvent} 
+                                                history={this.props.history}/>}
+            {this.state.event.event_type && <StandingBooking 
                                                 event={this.state.event} 
                                                 currentUser={this.props.currentUser} 
                                                 fetchOneEvent={this.fetchOneEvent} 
