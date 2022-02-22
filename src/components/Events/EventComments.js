@@ -4,7 +4,9 @@ import axios from 'axios';
 import { BASE_URL } from '../../apiBaseUrl';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import parse from 'html-react-parser'
+import parse from 'html-react-parser';
+import * as Emoji from "quill-emoji";
+import "quill-emoji/dist/quill-emoji.css";
 
 
 
@@ -14,23 +16,30 @@ export default class EventComments extends Component {
     comment: ''
   }
   
-  modules = {
-    toolbar: [
-      ['bold', 'italic', 'underline','strike']
+  toolbarOptions = {
+    container: [
+      ['bold', 'italic', 'underline'],
+    
     ],
-    keyboard: {
-      bindings: {
-        enter: {
-          key: 'enter',
-          handler: ()=>{
-            this.postComment()
-          }
-        },
-      }
-    },
+    handlers: {'emoji': function() {}}
   }
-
   
+    modules= {
+      toolbar: this.toolbarOptions,
+      "emoji-toolbar": true,
+      "emoji-textarea": true,
+      "emoji-shortname": true,
+      keyboard: {
+            bindings: {
+              enter: {
+                key: 'enter',
+                handler: ()=>{
+                  this.postComment()
+                }
+              },
+            }
+      },
+    }
 
   handleClick =()=>{
     console.log('hello');
