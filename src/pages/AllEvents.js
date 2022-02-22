@@ -34,7 +34,9 @@ export default class AllEvents extends Component {
       <div className="pages-wrapper">
         {
           this.state.allEvents.map(event => {
-            return(<article key={event.id}>
+            return(
+            <article key={event.id}>
+              <img src={event.image} max-width="300px" width="300px"/>
               <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>
               <p>{event.description}</p>
