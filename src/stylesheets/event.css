@@ -33,3 +33,8 @@
 .event-comments {
     flex: 1 200px;
 }
+
+.comment-time {
+    font-size: 14px;
+    color: darkgray;
+}
