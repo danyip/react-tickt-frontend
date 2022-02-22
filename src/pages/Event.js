@@ -10,16 +10,12 @@ import StandingBooking from '../components/EventBooking/StandingBooking';
 import SingleEventMap from '../components/Events/SingleEventMap';
 import {DateTime} from "luxon";
 import {AdvancedImage} from '@cloudinary/react';
-import {Cloudinary} from "@cloudinary/url-gen";
+import { cld } from "../cld";
+import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
 
 // Import any actions required for transformations.
 import {fill} from "@cloudinary/url-gen/actions/resize";
 
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'tickt-project22' //process.env.cloudinary_cloudname
-  }
-});
 
 
 export default class Event extends Component {
@@ -65,7 +61,8 @@ export default class Event extends Component {
 
 
   render() {
-    const myImage = cld.image(this.image); 
+    const myImage = cld.image(this.state.event.image);
+    myImage.resize(thumbnail().width(300).height(300)) 
     
      
     return (
@@ -80,8 +77,8 @@ export default class Event extends Component {
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
             <div className="image-map-container">
-            {/* <AdvancedImage cldImg={myImage} /> */}
-              <div className="event-image"><p>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</p></div>
+            
+              <div className="event-image"><AdvancedImage cldImg={myImage} /></div>
               <SingleEventMap className="event-map" venue={this.state.event.venue} />
             </div>
 
@@ -95,7 +92,7 @@ export default class Event extends Component {
                   currentUser={this.props.currentUser}
                   eventId={this.state.event.id}
                   newComment={this.newComment}
-                   />
+                  />
               </div>
             </div>
             {!this.state.event.event_type && <SeatedBooking 
