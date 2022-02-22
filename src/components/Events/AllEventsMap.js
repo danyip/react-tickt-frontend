@@ -19,13 +19,13 @@ export default class AllEventsMap extends Component {
       lng: null
     },
     loading: true,
+    events: [],
     venues: [],
     venuePositions: []
   }
   
   componentDidMount(){
     this.getLocation()
-    this.fetchAllVenues()
   }
 
   getLocation = () => {
@@ -44,13 +44,15 @@ export default class AllEventsMap extends Component {
         lng: pos.coords.longitude
       }, loading: false
     })
+    const position = [pos.coords.latitude, pos.coords.longitude]
+    this.fetchAllVenues(position)
   }
 
-  fetchAllVenues = async ()=>{
+  fetchAllVenues = async (position)=>{
     const url = `${BASE_URL}/venues`
 
     try {
-      const res = await axios.get(url)
+      const res = await axios.get(url, {params: position})
       console.log('fetchAllVenues()',res.data);
       this.setState({venues: res.data})
       this.getVenuePositions();
@@ -60,24 +62,18 @@ export default class AllEventsMap extends Component {
   }
 
   getVenuePositions = () => {
-    const arr = this.state.venues.map(ev => {
+    const venueArr = this.state.venues.map(ev => {
       const position = {
         lat: parseFloat(ev.latitude), 
         lng: parseFloat(ev.longitude)
       }
       return position
     })
-    console.log(arr);
-    this.setState({venuePositions: arr})
+    console.log(venueArr);
+    this.setState({venuePositions: venueArr})
   }
 
-
   render() {
-
-    // const eventMarker = this.state.events.map((ev, index) => {
-      
-    // })
-
 
     return (
       <div>
@@ -112,19 +108,20 @@ export default class AllEventsMap extends Component {
             </LoadScript>
           </div>
         }
-        {/* <article>
+        <article>
           {
-            this.state.venues.map(ev => {
+            this.state.venues.map((ven) => {
               return(
-                <div key={ev.event.id}>
-                  <h4>{ev.event.name}</h4>
-                  <p>{ev.name}</p>
-                  <p>{ev.event.date}</p>
+                <div key={ven.id}>
+                  <h4>{ven.name}</h4>
+                  <p>{ven.address}</p>
+                  <p>Number of events: {ven.events.length}</p>
+
                 </div>
               )
             })
           }
-        </article> */}
+        </article>
       </div>
     )
   }
