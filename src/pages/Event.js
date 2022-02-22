@@ -41,8 +41,15 @@ export default class Event extends Component {
 
   componentDidMount(){
     this.fetchOneEvent()
+    
   }
   
+  // Adds a new comment to state after posting to server
+  newComment = (newComment)=>{
+    let {event} = this.state
+    event.comments.push(newComment)
+    this.setState({event: event} )
+  }
 
 
   render() {
@@ -68,7 +75,12 @@ export default class Event extends Component {
                 <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
               </div>
               <div className="event-comments">
-                <EventComments comments={this.state.event.comments} />
+                <EventComments 
+                  comments={this.state.event.comments} 
+                  currentUser={this.props.currentUser}
+                  eventId={this.state.event.id}
+                  newComment={this.newComment}
+                   />
               </div>
             </div>
             {!this.state.event.event_type && <SeatedBooking 
