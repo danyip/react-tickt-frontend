@@ -2,23 +2,43 @@ import React, { Component } from 'react'
 import {DateTime} from "luxon";
 import axios from 'axios';
 import { BASE_URL } from '../../apiBaseUrl';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import parse from 'html-react-parser'
+
+
 
 export default class EventComments extends Component {
   
   state = {
     comment: ''
   }
+  
+  modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline','strike']
+    ],
+    keyboard: {
+      bindings: {
+        enter: {
+          key: 'enter',
+          handler: ()=>{
+            this.postComment()
+          }
+        },
+      }
+    },
+  }
 
-  handleSubmit =(e)=>{
-    e.preventDefault()
+  
+
+  handleClick =()=>{
     console.log('hello');
     this.postComment()
   }
-
-  onChange =(e)=>{
-    this.setState({comment: e.target.value})
+  handleChange = (e)=>{
+    this.setState({comment: e})
   }
-
   postComment = async ()=>{
     const comment = {
       user_id: this.props.currentUser.id,
@@ -46,7 +66,7 @@ export default class EventComments extends Component {
             return(
               <div key={comment.id}>
                 <h5>{comment.user.name}</h5>
-                <p>{comment.text}</p>
+                {parse(comment.text)}
                 <p className="comment-time">{
                   // DateTime.fromISO(comment.created_at).toLocaleString(DateTime.DATETIME_SHORT)
                   DateTime.fromISO(comment.created_at).toRelative()
@@ -54,11 +74,16 @@ export default class EventComments extends Component {
               </div>
             )
           })}
-          <form onSubmit={this.handleSubmit}>{/* TODO: Look into replacing this with something more slick with EMOJIS */}
-            <textarea onChange={this.onChange} name="comment" id="comment" cols="30" rows="3" placeholder='Write a comment' value={this.state.comment}></textarea>
-            <button>Submit</button>
-          </form>
+          
+          <ReactQuill value={this.state.comment}
+                    onChange={this.handleChange}
+                    onSubmit={this.handleClick}
+                    modules={this.modules}
+        />
+        <button onClick={this.handleClick}>Submit</button>
         </div>
+
+        
 
       </section>
     )
