@@ -4,11 +4,7 @@ import { BASE_URL } from "../apiBaseUrl";
 import { Redirect } from 'react-router-dom';
 import '../stylesheets/User.css';
 
-import {AdvancedImage} from '@cloudinary/react';
-import {Cloudinary} from "@cloudinary/url-gen";
 
-// Import any actions required for transformations.
-import {fill} from "@cloudinary/url-gen/actions/resize";
 
 
 
@@ -21,7 +17,8 @@ class NewUser extends React.Component{
     userLevel: 1,
     redirect: false,
     imageUrl: null,
-    imageAlt: null
+    imageAlt: null,
+
   }
 
   handleInput = (ev) => {
@@ -42,7 +39,9 @@ class NewUser extends React.Component{
       'name': this.state.name,
       'email': this.state.email,
       'password': this.state.password,
-      'user_level': this.state.userLevel
+      'user_level': this.state.userLevel,
+      'image': this.state.publicId
+      
     }
 
     axios.post(`${BASE_URL}/users`, {user: newUser})
@@ -72,7 +71,7 @@ class NewUser extends React.Component{
   // replace cloudname with your Cloudinary cloud_name
   return  fetch('https://api.Cloudinary.com/v1_1/tickt-project22/image/upload', options)
   .then(res => res.json())
-  .then(res => console.log(res))
+  .then(res => console.log("Clodinary image response" , res))
   .catch(err => console.log(err));
 
  }
@@ -86,7 +85,9 @@ class NewUser extends React.Component{
     },
     (error, { event, info }) => {
       if (event === 'success') {
+        console.log("inside the widget function" , info);
         this.setState({
+          publicId: info.public_id,
           imageUrl: info.secure_url,
           imageAlt: `An image of ${info.original_filename}`
         })
@@ -94,7 +95,6 @@ class NewUser extends React.Component{
     },
   ).open();
 };
-
   render(){
     const { imageUrl, imageAlt } = this.state;
 
