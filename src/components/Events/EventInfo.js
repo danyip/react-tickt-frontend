@@ -1,9 +1,10 @@
 import React from 'react'
 import {DateTime} from "luxon";
+import {Link} from 'react-router-dom'
 
 export default function EventInfo(props) {
   const event = {...props.event} 
-  
+
   return (
     <article className="event-info-container">
       {
@@ -24,7 +25,7 @@ export default function EventInfo(props) {
       </section>
       <section>
         <h5>Time</h5>
-        <p>{DateTime.fromISO(event.time).toLocaleString({ hour:'numeric', minute: 'numeric' , timeZoneName: 'long' })}</p>
+        <p>{DateTime.fromISO(event.time).toLocaleString({ hour:'numeric', minute: 'numeric' , timeZoneName: 'short' })}</p>
       </section>
       <section>
         <h5>Tickets Left</h5>
@@ -34,7 +35,7 @@ export default function EventInfo(props) {
         <h5>Price</h5>
         <p>${event.price/100}</p>
       </section>
-      <button className="purchase-button">Purchase Tickets</button>
+      <Link to='/confirmation'><button className="purchase-button" onClick={()=>this.handleClick(event.id)}>Purchase Tickets</button></Link>
     </article>
   )
 }

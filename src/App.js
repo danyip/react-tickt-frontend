@@ -10,6 +10,7 @@ import Event from "./pages/Event";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Confirmation from "./pages/Confirmation";
 import './stylesheets/style.css';
 
 class App extends React.Component{
@@ -67,6 +68,7 @@ class App extends React.Component{
         <div className="page-wrapper">  
 
           <Route exact path='/' component={Home}/>
+
           <Route 
             exact path='/new_user'
             render={(props) => 
@@ -96,7 +98,13 @@ class App extends React.Component{
             <Event currentUser={this.state.currentUser}
             {...props}/>}
           />
-            
+
+          <Route
+            exact path='/confirmation'
+            render={(props) =>
+            <Confirmation currentUser={this.state.currentUser}
+            {...props} />}
+          />
             
 
         </div>
