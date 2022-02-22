@@ -9,7 +9,7 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 
 const cld = new Cloudinary({
   cloud: {
-    cloudName: 'tickt-project22'
+    cloudName: 'tickt-project22' //process.env.cloudinary_cloudname
   }
 });
 
