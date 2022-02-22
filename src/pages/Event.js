@@ -17,7 +17,6 @@ import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
 import {fill} from "@cloudinary/url-gen/actions/resize";
 
 
-
 export default class Event extends Component {
 
   state = {
