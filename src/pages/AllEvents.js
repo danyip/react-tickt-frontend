@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
 import '../stylesheets/style.css';
 
+
 export default class AllEvents extends Component {
   state = {
     allEvents: []
@@ -30,12 +31,15 @@ export default class AllEvents extends Component {
   }
 
   render() {
+
+
     return (
       <div className="pages-wrapper">
         {
           this.state.allEvents.map(event => {
             return(
             <article key={event.id}>
+              
               <img src={event.image} max-width="300px" width="300px"/>
               <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>

@@ -8,6 +8,17 @@ import EventComments from '../components/Events/EventComments'
 import SeatedBooking from '../components/EventBooking/SeatedBooking';
 import SingleEventMap from '../components/Events/SingleEventMap';
 import {DateTime} from "luxon";
+import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen";
+
+// Import any actions required for transformations.
+import {fill} from "@cloudinary/url-gen/actions/resize";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'tickt-project22' //process.env.cloudinary_cloudname
+  }
+});
 
 
 export default class Event extends Component {
@@ -53,7 +64,9 @@ export default class Event extends Component {
 
 
   render() {
-
+    const myImage = cld.image(this.image); 
+    
+     
     return (
       <div className="pages-wrapper">
         {
@@ -66,6 +79,7 @@ export default class Event extends Component {
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
             <div className="image-map-container">
+            {/* <AdvancedImage cldImg={myImage} /> */}
               <div className="event-image"><p>REPLACE WITH EVENT IMAGE ONCE WE WORK OUT CLOUDINARY</p></div>
               <SingleEventMap className="event-map" venue={this.state.event.venue} />
             </div>
