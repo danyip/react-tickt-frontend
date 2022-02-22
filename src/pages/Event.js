@@ -27,7 +27,7 @@ export default class Event extends Component {
       tickets:[],
       comments:[]
     },
-    ticketsLeft: 0
+    ticketsLeft: 0,
   }
 
   fetchOneEvent = async ()=>{
@@ -77,11 +77,9 @@ export default class Event extends Component {
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
             <div className="image-map-container">
-            
               <div className="event-image"><AdvancedImage cldImg={myImage} /></div>
               <SingleEventMap className="event-map" venue={this.state.event.venue} />
             </div>
-
             <div className="event-info-comments-container">
               <div className="event-info">
                 <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
@@ -95,17 +93,17 @@ export default class Event extends Component {
                   />
               </div>
             </div>
-            {!this.state.event.event_type && <SeatedBooking 
-                                                event={this.state.event} 
-                                                currentUser={this.props.currentUser} 
-                                                fetchOneEvent={this.fetchOneEvent} 
-                                                history={this.props.history}/>}
-            {this.state.event.event_type && <StandingBooking 
+            {this.state.event.event_type === 0 && <SeatedBooking 
                                                 event={this.state.event} 
                                                 currentUser={this.props.currentUser} 
                                                 fetchOneEvent={this.fetchOneEvent} 
                                                 history={this.props.history}/>}
 
+            {this.state.event.event_type === 1 && <StandingBooking 
+                                                event={this.state.event} 
+                                                currentUser={this.props.currentUser} 
+                                                fetchOneEvent={this.fetchOneEvent} 
+                                                history={this.props.history}/>}
           </div>
         }
       </div>
