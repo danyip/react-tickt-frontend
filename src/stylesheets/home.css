@@ -1,0 +1,49 @@
+#homepage {
+  margin: auto;
+  
+}
+
+.tiles {
+  color: #330400;; 
+}
+
+.tiles ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 20px auto;
+  justify-content: space-around;
+}
+
+.tiles li {
+  cursor: pointer;
+  margin: 10px;
+  padding: 20px;
+  list-style-type: none;
+  border: 3px solid #330400ba;
+  background-color: ghostwhite;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+}
+
+.content {
+  max-width: 200px;
+}
+
+.img {
+  border-radius: 10px;
+
+}
+
+.tile-info {
+  line-height: normal;
+  font-size: 14px;
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}

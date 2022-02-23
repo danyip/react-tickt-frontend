@@ -62,7 +62,7 @@ export default class Event extends Component {
 
   render() {
     const myImage = cld.image(this.state.event.image);
-    myImage.resize(thumbnail().width(300).height(300)) 
+    myImage.resize(thumbnail().height(400)) 
     
      
     return (
@@ -84,14 +84,7 @@ export default class Event extends Component {
               <div className="event-info">
                 <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
               </div>
-              <div className="event-comments">
-                <EventComments 
-                  comments={this.state.event.comments} 
-                  currentUser={this.props.currentUser}
-                  eventId={this.state.event.id}
-                  newComment={this.newComment}
-                  />
-              </div>
+              
             </div>
             {this.state.event.event_type === 0 && <SeatedBooking 
                                                 event={this.state.event} 
@@ -104,7 +97,16 @@ export default class Event extends Component {
                                                 currentUser={this.props.currentUser} 
                                                 fetchOneEvent={this.fetchOneEvent} 
                                                 history={this.props.history}/>}
+            <div className="event-comments">
+                <EventComments 
+                  comments={this.state.event.comments} 
+                  currentUser={this.props.currentUser}
+                  eventId={this.state.event.id}
+                  newComment={this.newComment}
+                  />
+              </div>
           </div>
+          
         }
       </div>
     )

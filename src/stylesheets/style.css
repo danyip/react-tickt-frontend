@@ -1,7 +1,10 @@
 .page-wrapper {
-    margin: 0 100px 0 100px;
+    margin: auto;
+    width: 80%;
     max-width: 1920px;
 }
+
+
 
 h2 {
     font-family:apparat, sans-serif;

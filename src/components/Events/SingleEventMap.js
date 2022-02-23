@@ -6,7 +6,7 @@ export default class SingleEventMap extends Component {
     return(
       <div>
         <iframe 
-          width="600" 
+          width="400" 
           height="400" 
           style={{border: "0"}} 
           loading="lazy" 
