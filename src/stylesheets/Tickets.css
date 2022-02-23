@@ -1,5 +1,36 @@
-.ticket {
-    width: 875px;
-    background-color:gold;
+.virtual-ticket {
+    width: 775px;
+    height: 430px;
+    background-color:beige;
     border-radius: 20px;
+    border: 1px solid black;
 }
+
+.virtual-ticket > h1 {
+    color:black;
+    margin: 0;
+    padding: 40px 40px 10px 40px;
+}
+
+.virtual-ticket > section {
+    margin-left: 40px;
+}
+
+.virtual-ticket h3 {
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.virtual-ticket h5 {
+    display: inline;
+    line-height: 175%;
+}
+
+.virtual-ticket p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    line-height: 175%;
+}
+
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Route, Redirect, Link, HashRouter as Router} from 'react-router-dom';
+import {Route, Redirect, Link, BrowserRouter as Router} from 'react-router-dom';
 import {BASE_URL} from './apiBaseUrl'
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AllEventsMap from './pages/FindEvent';
 import Confirmation from "./pages/Confirmation";
+import SearchResults from './pages/SearchResults';
+
 import './stylesheets/style.css';
 
 class App extends React.Component{
@@ -82,7 +84,7 @@ class App extends React.Component{
             render={(props) => 
               <MyProfile 
                 {...this.state}
-                setCurrentUser={this.setCurrentUser}
+                currentUser={this.state.currentUser}
                 {...props}/>}
           />
           <Route
@@ -94,6 +96,8 @@ class App extends React.Component{
           <Route exact path='/events' component={AllEvents}/>
 
           <Route exact path='/find_event' component={AllEventsMap} />
+
+          <Route exact path='/search/:params' component={SearchResults} />
           
           <Route 
             exact path='/event/:id' 
