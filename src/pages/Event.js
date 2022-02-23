@@ -30,7 +30,6 @@ export default class Event extends Component {
     ticketsLeft: 0,
     showBooking: ''
   }
-
   
   scrollToRef = createRef();
 
