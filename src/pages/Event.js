@@ -109,18 +109,12 @@ export default class Event extends Component {
                             
                 />
               </div>
-              <div className="event-comments">
-                <EventComments 
-                  comments={this.state.event.comments} 
-                  currentUser={this.props.currentUser}
-                  eventId={this.state.event.id}
-                  newComment={this.newComment}
-                  />
-              </div>
+              
 
             </div>
               
             <div ref={this.scrollToRef}> 
+            
               {this.state.showBooking === 'seated' && <SeatedBooking 
                                                   event={this.state.event} 
                                                   currentUser={this.props.currentUser} 
@@ -135,6 +129,14 @@ export default class Event extends Component {
                                                   history={this.props.history}
                                                   />}
               
+              <div className="event-comments">
+                <EventComments 
+                  comments={this.state.event.comments} 
+                  currentUser={this.props.currentUser}
+                  eventId={this.state.event.id}
+                  newComment={this.newComment}
+                  />
+              </div>
             </div>
           </div>
           
