@@ -35,7 +35,7 @@ export default function EventInfo(props) {
         <h5>Price</h5>
         <p>${event.price/100}</p>
       </section>
-      <Link to='/confirmation'><button className="purchase-button" onClick={()=>this.handleClick(event.id)}>Purchase Tickets</button></Link>
+      <button onClick={props.handleMakeBooking}>Make Booking</button>
     </article>
   )
 }
