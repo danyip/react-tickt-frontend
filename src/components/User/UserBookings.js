@@ -14,8 +14,9 @@ export default class UserBookings extends Component {
           return(
             <div key={i}>
             <h3>
-            {event} {events[event][0].event.date}
+              {event} 
             </h3>
+            <p>{events[event][0].event.date}</p>
 
             {events[event].map(ticket=>{
               return(
