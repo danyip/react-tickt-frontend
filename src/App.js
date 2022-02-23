@@ -10,7 +10,7 @@ import Event from "./pages/Event";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import AllEventsMap from './components/Events/AllEventsMap';
+import AllEventsMap from './pages/FindEvent';
 import './stylesheets/style.css';
 
 class App extends React.Component{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../stylesheets/style.css'
-import AllEventsMap from '../components/Events/AllEventsMap';
+import AllEventsMap from './FindEvent';
 
 export default class Home extends Component {
   render() {

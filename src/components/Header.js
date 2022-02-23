@@ -19,7 +19,7 @@ class Header extends React.Component {
 
           <li><h1><Link to='/'>tickt</Link></h1></li>
           <li><Link to='/events'>All Events </Link></li>
-          <li><Link to='/find_event'>Event Map</Link></li>
+          <li><Link to='/find_event'>Events Near Me</Link></li>
 
           {currentUser &&  <li className="push"><Link to="/my_profile">My Profile </Link></li>}
           {currentUser &&  <li><Link onClick={()=>this.props.handleLogout()} to='/'>Logout</Link></li>}
