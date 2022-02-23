@@ -160,7 +160,7 @@ export default class AllEventsMap extends Component {
                     <p><strong>Type</strong></p>
                     <p>{event.type === 0 ? "Seated" : "Standing"}</p>
                     <p><strong>Price</strong></p>
-                    <p>${event.price/10}</p>
+                    <p>${event.price/100}</p>
                     <button 
                       onClick={() => {this.getMoreInfo(event.id)}}>
                       Get more Info           
