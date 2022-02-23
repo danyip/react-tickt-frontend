@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tickets from "../BookingConfirmation/Tickets";
+import Ticket from "../BookingConfirmation/Ticket";
 
 export default class UserBookings extends Component {
   render() {
@@ -8,14 +8,15 @@ export default class UserBookings extends Component {
         {
           this.props.events.map(event=>{
             return (
-              <div>
+              <div key={event.id}>
                 {event.name}
                 {event.tickets.map(ticket=>{
                   return(
-                    <div>
+                    <div key={ticket.id}>
+                    INSERT TICKET COMPONENT HERE...
                       {ticket.id}
                       {event.name}
-                      {/* <Tickets/> */}
+                      {/* <Ticket ticketData={ticket}/> */}
                     </div>  
                   )
                 })}
