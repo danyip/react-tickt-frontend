@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { BASE_URL } from '../../apiBaseUrl'
+import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 export default class StandingBooking extends Component {
@@ -14,7 +15,7 @@ export default class StandingBooking extends Component {
     try {
       const res = await axios.post(`${BASE_URL}/tickets`, tickets)
       console.log('purchaseTickets()', res.data);
-      this.props.history.push('/') //TODO: Make this redirect to the tickets
+      this.props.history.push('/confirmation', {tickets: res.data});
       
     } catch (err) {
       console.log('Error purchaseTickets()', err);

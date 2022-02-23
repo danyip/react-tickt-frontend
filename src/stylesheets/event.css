@@ -23,15 +23,18 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 60px;
+    gap: 20px;
 }
 
 .event-info {
     flex: 2 200px;
     padding-right: 80px;
+    max-width: 850px;
 }
 
 .event-comments {
     flex: 1 200px;
+    max-width: 850px;
 }
 
 .comment-time {
