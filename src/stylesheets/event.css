@@ -10,7 +10,6 @@
 .event-image {
     max-width: 850px;
     height: 400px;
-    border: 1px solid blue;
     margin-right: 20px;
 }
 
@@ -38,3 +37,4 @@
     font-size: 14px;
     color: darkgray;
 }
+

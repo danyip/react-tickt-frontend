@@ -40,12 +40,11 @@ export default class AllEvents extends Component {
         {
           this.state.allEvents.map(event => {
             return(
-            <article key={event.id}>
+            <article key={event.id} >
               
             <AdvancedImage cldImg={ cld.image(event.image)
                                         .resize(thumbnail()
-                                        .width(150)
-                                        .height(150))} 
+                                        .width(150))} 
             />
               <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>

@@ -83,7 +83,7 @@ export default class Event extends Component {
 
   render() {
     const myImage = cld.image(this.state.event.image);
-    myImage.resize(thumbnail().width(300).height(300)) 
+    myImage.resize(thumbnail().height(400)) 
     
 
     return (
@@ -137,6 +137,7 @@ export default class Event extends Component {
               
             </div>
           </div>
+          
         }
         
         
