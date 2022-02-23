@@ -7,6 +7,7 @@ import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../cld";
 import {thumbnail, scale, fill} from "@cloudinary/url-gen/actions/resize";
 
+import AllEventsMap from './FindEvent';
 
 export default class Home extends Component {
 
