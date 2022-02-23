@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api';
-import { BASE_URL, GOOGLE_MAP_API_KEY } from '../apiBaseUrl';
+import {GOOGLE_MAP_API_KEY } from '../apiBaseUrl';
+import { BASE_URL } from '../config/constants';
 import axios from 'axios';
 import {DateTime} from "luxon";
 import {AdvancedImage} from '@cloudinary/react';
