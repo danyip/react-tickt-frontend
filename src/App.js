@@ -82,7 +82,7 @@ class App extends React.Component{
             render={(props) => 
               <MyProfile 
                 {...this.state}
-                setCurrentUser={this.setCurrentUser}
+                currentUser={this.state.currentUser}
                 {...props}/>}
           />
           <Route
