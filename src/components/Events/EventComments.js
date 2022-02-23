@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {DateTime} from "luxon";
 import axios from 'axios';
-import { BASE_URL } from '../../apiBaseUrl';
+import { BASE_URL } from '../../config/constants';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import parse from 'html-react-parser';
