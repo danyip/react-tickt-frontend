@@ -29,7 +29,6 @@ class Header extends React.Component {
           </ul>
         </nav>
         
-        {currentUser && <p>Hello, {currentUser.name}</p> }
         
       </header>
     )

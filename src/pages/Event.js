@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React, { Component, createRef, useRef } from 'react'
 import { BASE_URL } from '../apiBaseUrl';
 import '../stylesheets/style.css';
 import '../stylesheets/event.css';
@@ -19,6 +19,7 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 
 export default class Event extends Component {
 
+  
   state = {
     loading: true,
     event: {
@@ -27,7 +28,11 @@ export default class Event extends Component {
       comments:[]
     },
     ticketsLeft: 0,
+    showBooking: ''
   }
+
+  
+  scrollToRef = createRef();
 
   fetchOneEvent = async ()=>{
     const url = `${BASE_URL}/events/${this.props.match.params.id}`
@@ -58,12 +63,29 @@ export default class Event extends Component {
     this.setState({event: event} )
   }
 
+  handleMakeBooking = ()=>{
+    if (!this.props.currentUser) {
+      this.props.history.push('/new_user')
+
+    } else if (this.state.event.event_type === 0){
+      this.setState({showBooking: 'seated'})
+      
+      setTimeout(() => {
+        this.scrollToRef.current.scrollIntoView({behavior: 'smooth'})
+      });
+      
+    } else {
+      this.setState({showBooking: 'standing'}, ()=> {this.scrollToRef.current.scrollIntoView({behavior: 'smooth'})})
+      
+      
+    }
+  }
 
   render() {
     const myImage = cld.image(this.state.event.image);
     myImage.resize(thumbnail().height(400)) 
     
-     
+
     return (
       <div className="pages-wrapper">
         {
@@ -81,22 +103,13 @@ export default class Event extends Component {
             </div>
             <div className="event-info-comments-container">
               <div className="event-info">
-                <EventInfo event={this.state.event} ticketsLeft={this.state.ticketsLeft} />
+                <EventInfo  event={this.state.event} 
+                            ticketsLeft={this.state.ticketsLeft}
+                            handleMakeBooking={this.handleMakeBooking}
+                            
+                />
               </div>
-              
-            </div>
-            {this.state.event.event_type === 0 && <SeatedBooking 
-                                                event={this.state.event} 
-                                                currentUser={this.props.currentUser} 
-                                                fetchOneEvent={this.fetchOneEvent} 
-                                                history={this.props.history}/>}
-
-            {this.state.event.event_type === 1 && <StandingBooking 
-                                                event={this.state.event} 
-                                                currentUser={this.props.currentUser} 
-                                                fetchOneEvent={this.fetchOneEvent} 
-                                                history={this.props.history}/>}
-            <div className="event-comments">
+              <div className="event-comments">
                 <EventComments 
                   comments={this.state.event.comments} 
                   currentUser={this.props.currentUser}
@@ -104,9 +117,30 @@ export default class Event extends Component {
                   newComment={this.newComment}
                   />
               </div>
+
+            </div>
+              
+            <div ref={this.scrollToRef}> 
+              {this.state.showBooking === 'seated' && <SeatedBooking 
+                                                  event={this.state.event} 
+                                                  currentUser={this.props.currentUser} 
+                                                  fetchOneEvent={this.fetchOneEvent} 
+                                                  history={this.props.history}
+                                                  />}
+
+              {this.state.showBooking === 'standing' && <StandingBooking 
+                                                  event={this.state.event} 
+                                                  currentUser={this.props.currentUser} 
+                                                  fetchOneEvent={this.fetchOneEvent} 
+                                                  history={this.props.history}
+                                                  />}
+              
+            </div>
           </div>
           
         }
+        
+        
       </div>
     )
   }

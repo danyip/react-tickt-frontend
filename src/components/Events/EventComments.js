@@ -84,12 +84,15 @@ export default class EventComments extends Component {
             )
           })}
           
+          {
+          this.props.currentUser 
+          && 
           <ReactQuill value={this.state.comment}
                     onChange={this.handleChange}
                     onSubmit={this.handleClick}
                     modules={this.modules}
-        />
-        <button onClick={this.handleClick}>Submit</button>
+          />
+          }
         </div>
 
         
