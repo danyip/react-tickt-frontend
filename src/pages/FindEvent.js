@@ -81,7 +81,12 @@ export default class FindEvent extends Component {
         lat: parseFloat(ev.latitude), 
         lng: parseFloat(ev.longitude)
       }
-      return position
+
+      const venue = {
+        position: position,
+        image: ev.image
+      }
+      return venue
     })
     console.log(venueArr);
     this.setState({venuePositions: venueArr})
@@ -133,14 +138,15 @@ export default class FindEvent extends Component {
                   <Marker 
                     key={1}
                     position={this.state.userCenter}
-                    icon={`https://res.cloudinary.com/tickt-project22/image/upload/w_30,c_scale/r_max/e_outline:outer:1/${this.props.currentUser.image}.png`} 
+                    icon={this.props.currentUser ? `https://res.cloudinary.com/tickt-project22/image/upload/w_30,h_30,c_fill/r_max/e_outline:outer:1/${this.props.currentUser.image}.png` : 'http://maps.google.com/mapfiles/ms/icons/horsebackriding.png'} 
                   />
                   {
-                    this.state.venuePositions.map((pos, i) => {
+                    this.state.venuePositions.map((venue, i) => {
                       return (
                       <Marker 
                         key={i}
-                        position={pos}
+                        position={venue.position}
+                        icon={`https://res.cloudinary.com/tickt-project22/image/upload/w_30,h_30,c_fill/r_max/co_rgb:A62216,e_outline:outer:3/${venue.image}.png`} 
                         onClick={() => this.handleClick(i)}
                       />
                     )})
