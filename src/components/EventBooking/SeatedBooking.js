@@ -47,7 +47,6 @@ export default class SeatedBooking extends Component {
   addNewTicket = (row, column) => {
     const newTicket = {
       event_id: this.props.event.id,
-      user_id: this.props.currentUser.id,
       seat_row: row,
       seat_column: column,
     };
@@ -88,10 +87,14 @@ export default class SeatedBooking extends Component {
   };
 
   purchaseTickets = async () => {
+
+    let token = "Bearer " + localStorage.getItem("jwt");
+
     try {
       const res = await axios.post(
-        `${BASE_URL}/tickets`,
-        this.state.newTickets
+                                  `${BASE_URL}/tickets`,
+                                  this.state.newTickets,
+                                  { headers: {'Authorization': token}}
       );
       console.log("purchaseTickets()", res.data);
       this.props.history.push("/confirmation", { tickets: res.data });
