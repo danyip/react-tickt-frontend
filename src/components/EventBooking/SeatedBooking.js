@@ -81,7 +81,7 @@ export default class SeatedBooking extends Component {
     try {
       const res = await axios.post(`${BASE_URL}/tickets`, this.state.newTickets)
       console.log('purchaseTickets()', res.data);
-      this.props.history.push('/') //TODO: Make this redirect to the tickets
+      this.props.history.push('/confirmation', {tickets: res.data});
       
     } catch (err) {
       console.log('Error purchaseTickets()', err);
