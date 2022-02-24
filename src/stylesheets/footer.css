@@ -1,16 +1,32 @@
 footer {
-    height: 150px;
+    height: 250px;
     width: 100%;
     background-color: #A62216;
-    margin: 0;
     padding: 0;
 }
 
 .footer-flex {
     display: flex;
+}
 
+.footer-item {
+    flex: 1 200px;
+    padding: 50px 50px 0 50px;
+    height: 125px;
+}
+
+#footer-right {
+    text-align: right;
 }
 
 .footer-item > p {
     color:white;
+}
+
+footer > p {
+    padding: 50px;
+    color:white;
+    font-size: 14px;
+    padding: 20px 0 0 50px;
+    margin: 0;
 }
