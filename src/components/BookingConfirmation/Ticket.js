@@ -6,14 +6,15 @@ import QRCode from 'react-qr-code';
 
 export default function Tickets(props) {
 
-    // console.log(props.ticketData.id);
+
     if(!props.ticketData.id){
+
         return <div>Loading</div>
 
     }else {
 
         const ticketData = {...props.ticketData};
-      
+
         return (
           <article className="event-info-container">
             
