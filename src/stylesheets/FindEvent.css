@@ -1,0 +1,110 @@
+*{
+  /* border: 1px solid hotpink; */
+}
+
+.map-wrapper{
+  width: 600px;
+  height: 450px; 
+  margin-top: 2rem;
+  margin-right: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
+}
+
+
+
+.venues-container{
+  margin-top: 2rem;
+  height: 450px;
+  padding: 0.5rem;
+  overflow-y: scroll;
+  border: 1px solid #00000022;
+  /* border-radius: 1rem; */
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.venues-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+.venue{
+  /* border: 1px solid #2BB668; */
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
+  width: 300px;
+  font-size: 1rem;
+  margin-bottom: 1rem ;
+  padding: 0.5rem;
+  display: flex;
+}
+
+
+.venue:hover{
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.708) 1px 3px 10px;
+}
+
+.venue h4{
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.venue p{
+  margin: 0;
+  font-size: 0.7em;
+}
+
+
+.venue img{
+  border-radius: 10%;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.map-page-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media screen and (max-width: 1220px) {
+  .venue{
+    width: 600px
+  }
+  .map-wrapper{
+    margin-right: 0;
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+  .map-wrapper{
+    width: 450px;
+    height: 300px;
+  }
+  .venue{
+    width: 450px
+  }
+
+  .venues-container{
+    height: 40vh;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .map-wrapper{
+    width: 300px;
+    height: 200px;
+  }
+  .venue{
+    width: 250px
+  }
+  .venues-container{
+    height: 250px;
+  }
+  
+}
