@@ -11,7 +11,7 @@ export default function Tickets(props) {
     }else {
 
         const ticketData = {...props.ticketData};
-      
+
         return (
           <article className="event-info-container">
             

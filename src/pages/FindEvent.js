@@ -15,10 +15,14 @@ const containerStyle = {
 };
 
 
-export default class AllEventsMap extends Component {
+export default class FindEvent extends Component {
   
   state = {
     center: {
+      lat: null,
+      lng: null
+    },
+    userCenter: {
       lat: null,
       lng: null
     },
@@ -47,7 +51,12 @@ export default class AllEventsMap extends Component {
       center: {
         lat: pos.coords.latitude, 
         lng: pos.coords.longitude
-      }, loading: false
+      }, 
+      loading: false,
+      userCenter: {
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude
+      }
     })
     const position = [pos.coords.latitude, pos.coords.longitude]
     this.fetchAllVenues(position)
@@ -120,7 +129,12 @@ export default class AllEventsMap extends Component {
                   center={this.state.center}
                   zoom={12}
                   clickableIcons={false}
-                  >
+                >
+                  <Marker 
+                    key={1}
+                    position={this.state.userCenter}
+                    icon={`https://res.cloudinary.com/tickt-project22/image/upload/w_30,c_scale/r_max/e_outline:outer:1/${this.props.currentUser.image}.png`} 
+                  />
                   {
                     this.state.venuePositions.map((pos, i) => {
                       return (
