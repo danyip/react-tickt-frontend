@@ -30,3 +30,19 @@ footer > p {
     padding: 20px 0 0 50px;
     margin: 0;
 }
+
+@media screen and (max-width: 770px) {
+    .footer-flex {
+        flex-direction: column;
+    }
+    footer {
+        height: 450px;
+    }
+    .footer-item {
+        flex: 1;
+        padding: 20px 40px 0 40px;
+    }
+    #footer-right {
+        text-align: left;
+    }
+}
