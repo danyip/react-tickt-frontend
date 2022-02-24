@@ -9,18 +9,23 @@ export default class StandingBooking extends Component {
     ticketQuantity: 1,
   }
 
-  purchaseTickets = async (tickets)=>{
+
+  purchaseTickets = async (tickets) => {
+
+    let token = "Bearer " + localStorage.getItem("jwt");
 
     try {
-      const res = await axios.post(`${BASE_URL}/tickets`, tickets)
-      console.log('purchaseTickets()', res.data);
-      this.props.history.push('/confirmation', {tickets: res.data});
-      
+      const res = await axios.post(
+                                  `${BASE_URL}/tickets`,
+                                  tickets,
+                                  { headers: {'Authorization': token}}
+      );
+      console.log("purchaseTickets()", res.data);
+      this.props.history.push("/confirmation", { tickets: res.data });
     } catch (err) {
-      console.log('Error purchaseTickets()', err);
+      console.log("Error purchaseTickets()", err);
     }
-    
-  }
+  };
 
   onChange =  (e)=>{
     this.setState({ticketQuantity: parseInt(e.target.value)})
@@ -29,7 +34,6 @@ export default class StandingBooking extends Component {
   handleSubmit = (e)=>{
     e.preventDefault();
     const tickets = Array(this.state.ticketQuantity).fill({
-      user_id: this.props.currentUser.id,
       event_id: this.props.event.id
     })
 
