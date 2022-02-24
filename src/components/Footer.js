@@ -19,15 +19,6 @@ export default class Footer extends Component {
             </p>
           </div>
           <div className="footer-item">
-            <p id="footer-links">
-              <Link to='/events'>All Events </Link>
-              <Link to='/find_event'>Events Near Me</Link>
-              {currentUser &&  <Link to="/my_profile" className="push">Profile </Link>}
-              {currentUser &&  <Link onClick={()=>this.props.handleLogout()} to='/'>Logout</Link>}
-
-              {!currentUser && <Link to='/new_user' className="push">Sign Up</Link>}
-              {!currentUser && <Link to='/login' >Login </Link>}
-            </p>
           </div>
           <div className="footer-item" id="footer-right">
             <h1>tickt</h1>
