@@ -10,7 +10,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
 }
 
-.venues-container{
+.venues-container, .venue-container{
   
   height: 450px;
   padding: 0.5rem;
@@ -22,12 +22,12 @@
   -ms-overflow-style: none;
 }
 
-.venues-container::-webkit-scrollbar {
+.venues-container::-webkit-scrollbar, .venue-container::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
 
-.venue{
+.venue, .venue-event{
   /* border: 1px solid #2BB668; */
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
@@ -44,13 +44,20 @@
   box-shadow: rgba(0, 0, 0, 0.708) 1px 3px 10px;
 }
 
-.venue h4{
+.venue h4, .venue-event h4{
   margin: 0;
   font-size: 1em;
   font-weight: bold;
+  
 }
 
-.venue p{
+.venue-container h3{
+  font-size: 1.5em;
+  display: block;
+  margin: 0;
+}
+
+.venue p, .venue-event p{
   margin: 0;
   font-size: 0.7em;
 }

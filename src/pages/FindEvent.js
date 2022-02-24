@@ -161,33 +161,32 @@ export default class FindEvent extends Component {
         {
           currentVenue
           ?
-          <article className='selectedVenue'>
-            <AdvancedImage cldImg={venueImage} />
+          <article className='venue-container'>
+            {/* <AdvancedImage cldImg={venueImage} /> */}
             <h3>Events @ <strong>{currentVenue.name}</strong></h3>
             <p>{currentVenue.address}</p>
             <hr />
+            <div className='events-container'></div>
             {
               this.state.venueSelected.events.map((event) => {
                 return (
-                  <div>
+                  <div className='venue-event'>
                     <h4 onClick={() => {this.getMoreInfo(event.id)}}>
-                      <strong>{event.name}</strong>
+                      {event.name}
                     </h4>
-                    <p><strong>Date</strong></p>
-                    <p>
+                    <p><strong>Date</strong> 
                       {DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_HUGE)},
                       &nbsp;
                       {DateTime.fromISO(event.time).toFormat('hh:mma')} 
                     </p>
-                    <p><strong>Type</strong></p>
-                    <p>{event.type === 0 ? "Seated" : "Standing"}</p>
-                    <p><strong>Price</strong></p>
-                    <p>${event.price/100}</p>
+                    <p><strong>Type:</strong> {event.type === 0 ? "Seated" : "Standing"}</p>
+                   
+                    <p><strong>Price:</strong> ${event.price/100}</p>
+                    
                     <button 
                       onClick={() => {this.getMoreInfo(event.id)}}>
                       Get more Info           
                     </button>
-                    <hr />
                   </div>
                 )
               })
