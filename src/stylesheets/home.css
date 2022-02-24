@@ -47,3 +47,22 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+.search-bar {
+  margin: 10px auto;
+  text-align: center;
+  
+}
+
+.search-bar input {
+  width: 40%;
+}
+
+.search-bar h4 {
+  margin: 0;
+}
+
+.searchBtn {
+ margin-left: 10px;
+}
+
