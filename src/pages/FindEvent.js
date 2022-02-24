@@ -41,9 +41,9 @@ export default class FindEvent extends Component {
 
   getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition);
+      navigator.geolocation.getCurrentPosition(this.showPosition, this.showDefaultPosition);
     } else {
-      console.log( "Geolocation is not supported by this browser." );
+      console.log( "Geolocation is not supported by this browser. Let's pretend you're at GA." );
     }
   }
 
@@ -64,12 +64,29 @@ export default class FindEvent extends Component {
     this.fetchAllVenues(position)
   }
 
+  showDefaultPosition = (err) => {
+    console.log('Error getting location: ', err.message);
+    this.setState({
+      center: {
+        lat: -33.87108002721172, 
+        lng: 151.20467956398443
+      }, 
+      loading: false,
+      userCenter: {
+        lat: -33.87108002721172,
+        lng: 151.20467956398443
+      }
+    })
+    const position = [-33.87108002721172, 151.20467956398443]
+    this.fetchAllVenues(position)
+  }
+
   fetchAllVenues = async (position)=>{
     const url = `${BASE_URL}/venues`
 
     try {
       const res = await axios.get(url, {params: position})
-      console.log('fetchAllVenues()',res.data);
+      // console.log('fetchAllVenues()',res.data);
       this.setState({venues: res.data})
       this.getVenuePositions();
     } catch (err) {
@@ -90,7 +107,7 @@ export default class FindEvent extends Component {
       }
       return venue
     })
-    console.log(venueArr);
+    // console.log(venueArr);
     this.setState({venuePositions: venueArr})
   }
 

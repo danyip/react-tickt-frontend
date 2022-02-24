@@ -16,7 +16,7 @@ export default class AllEvents extends Component {
 
     try {
       const res = await axios.get(url)
-      console.log('fetchAllEvents()',res.data);
+      // console.log('fetchAllEvents()',res.data);
       this.setState({allEvents: res.data})
     } catch (err) {
       console.log('ERROR FETCHING ALL EVENTS: ', err);
@@ -28,7 +28,7 @@ export default class AllEvents extends Component {
   }
 
   handleClick = (id)=>{
-    console.log('Clicked: ', id);
+    // console.log('Clicked: ', id);
     this.props.history.push(`/event/${id}`)
   }
 
