@@ -33,7 +33,7 @@ export default function Tickets(props) {
                       </section>
                       
                       <section>
-                          <h5>Venue: </h5>
+                          <h5>VENUE: </h5>
                           <p>{ticketData.venue.name.toUpperCase()}</p>
                       </section>
       
