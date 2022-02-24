@@ -13,12 +13,16 @@ export default class UserBookings extends Component {
         {Object.keys(events).map((event, i)=>{
           return(
             <div key={i}>
-            {event}
-            {events[event][0].event.date}
+            <h3>
+              {event} 
+            </h3>
+            <p>{events[event][0].event.date}</p>
 
             {events[event].map(ticket=>{
               return(
-                <div key={ticket.id}>{ticket.id}</div>
+                
+                  <Ticket ticketData={ticket} key={ticket.id}/>
+                
               )
             })}
             </div>
