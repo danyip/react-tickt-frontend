@@ -24,7 +24,7 @@ export default class Search extends Component{
       return(
           <div className="search">
               <form onSubmit={this.handleSearch}>
-                  <input type="text" onChange={this.handleInput} placeholder='Search for an event' />
+                  <input className="search-bar" type="text" onChange={this.handleInput} placeholder='Search for an event' />
                   <button className="searchBtn">Search</button>
               </form>
           </div>
