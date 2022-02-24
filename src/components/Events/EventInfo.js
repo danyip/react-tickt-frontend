@@ -15,7 +15,7 @@ export default function EventInfo(props) {
           <h5>Event Description</h5>
           <p>{event.description}</p>
         </section>
-        <button onClick={props.handleMakeBooking}>Make Booking</button>
+        <button className="make-booking-button" onClick={props.handleMakeBooking}>Make Booking</button>
       </div>
       <div className="col2">
         <div className="nested-col1">

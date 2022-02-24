@@ -59,5 +59,8 @@
 
 .searchBtn {
  margin-left: 10px;
+ color: white;
+ border: none;
+ padding: 5px 20px;
 }
 

@@ -34,6 +34,16 @@
 .purchase-button {
     padding:10px 20px;
     margin: 20px 0 40px 0;
+    color: white;
+    border: none;
+    margin-left: 20px;
+}
+
+.make-booking-button {
+    padding:12px 25px;
+    margin: 20px 0 40px 0;
+    color: white;
+    border: none;
 }
 
 .event-info-comments-container {

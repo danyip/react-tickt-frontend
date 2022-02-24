@@ -16,7 +16,7 @@ export default class SeatSelection extends Component {
           })
           }
         </ul>
-        <button onClick={()=>this.props.purchaseTickets()}>Purchase</button>
+        <button className="purchase-button" onClick={()=>this.props.purchaseTickets()}>Purchase</button>
       </div>
     )
   }

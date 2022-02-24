@@ -43,7 +43,7 @@ export default class StandingBooking extends Component {
         StandingBooking
         <form onSubmit={this.handleSubmit}>
           <input type="number" min="1" max="10" value={this.state.ticketQuantity} onChange={this.onChange}/>
-          <button>Purchase</button>
+          <button className="purchase-button">Purchase</button>
         </form>
       </div>
     )
