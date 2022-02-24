@@ -12,7 +12,11 @@ export default class Search extends Component{
 
   handleSearch = (e) => {
     e.preventDefault();
-    this.props.returnSearch(this.state.queryText)
+    if(this.state.queryText.length === 0){
+      return
+    }else{
+      this.props.returnSearch(this.state.queryText)
+    }
   }
 
 
@@ -20,7 +24,7 @@ export default class Search extends Component{
       return(
           <div className="search">
               <form onSubmit={this.handleSearch}>
-                  <input type="text" onChange={this.handleInput} />
+                  <input type="text" onChange={this.handleInput} placeholder='Search for an event' />
                   <button className="searchBtn">Search</button>
               </form>
           </div>

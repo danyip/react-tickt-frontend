@@ -46,7 +46,6 @@ export default class Home extends Component {
       <div className="pages-wrapper" id="homepage">
 
         <div className="search-bar">
-          <h4>Search for an Event</h4>
           <Search returnSearch={this.returnSearch}/>
         </div>
 
