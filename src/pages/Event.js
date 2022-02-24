@@ -87,12 +87,14 @@ export default class Event extends Component {
 
     return (
       <div className="pages-wrapper">
+        <div className="event-content-wrapper">
         {
           this.state.loading
           ?
           <div>Loading...</div>
           :
           <div className="page-content">
+            
             <h3>{this.state.event.name}</h3>
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
@@ -141,7 +143,7 @@ export default class Event extends Component {
           
         }
         
-        
+        </div>
       </div>
     )
   }
