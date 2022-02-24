@@ -29,7 +29,7 @@ export default class SearchResults extends Component {
 
     try {
       const res = await axios.get(url, {params: {search: this.props.match.params.params}})
-      console.log('handleSearch()', res.data);
+      // console.log('handleSearch()', res.data);
       this.setState({searchResults: res.data})
     } catch (err) {
       console.log('ERROR FETCHING SEARCH RESULTS: ', err);

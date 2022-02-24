@@ -20,7 +20,7 @@ export default class Home extends Component {
 
     try {
       const res = await axios.get(url);
-      console.log("fetchAllEvents()", res.data);
+      // console.log("fetchAllEvents()", res.data);
       this.setState({ allEvents: res.data });
       this.setState({ loading: false });
     } catch (err) {
@@ -33,7 +33,7 @@ export default class Home extends Component {
   }
 
   handleClick = (id) => {
-    console.log("Clicked: ", id);
+    // console.log("Clicked: ", id);
     this.props.history.push(`/event/${id}`);
   };
 

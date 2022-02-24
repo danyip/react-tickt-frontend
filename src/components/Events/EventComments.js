@@ -42,7 +42,6 @@ export default class EventComments extends Component {
     }
 
   handleClick =()=>{
-    console.log('hello');
     this.postComment()
   }
   handleChange = (e)=>{
@@ -57,7 +56,6 @@ export default class EventComments extends Component {
 
     try {
       const res = await axios.post(`${BASE_URL}/comments`, comment )
-      console.log(res);
       this.setState({comment: ''})
       this.props.newComment(res.data)
       

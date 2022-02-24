@@ -28,7 +28,6 @@ class MyProfile extends React.Component{
           'Authorization': token
         }
       })
-      console.log(res.data);
       this.setState({events: res.data})
       
     } catch (err) {

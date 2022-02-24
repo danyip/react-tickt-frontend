@@ -38,7 +38,7 @@ export default class Event extends Component {
 
     try {
       const res = await axios.get(url)
-      console.log('fetchOneEvent()',res.data);
+      // console.log('fetchOneEvent()',res.data);
       this.setState({event: res.data})
       
       this.setState({ticketsLeft: this.state.event.event_type? this.state.event.venue.standing_capacity - this.state.event.tickets.length : this.state.event.venue.seat_rows * this.state.event.venue.seat_columns - this.state.event.tickets.length})
