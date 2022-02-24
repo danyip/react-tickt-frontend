@@ -65,66 +65,62 @@ class App extends React.Component{
   render(){
     return (
       <Router>
-        <div>
-          <div className="page-wrapper">  
+        <div className="App">
           
-            <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
+          <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser}/>
 
+          <div className="content-wrapper">
 
-            <div className="content-wrapper">
+            <Route exact path='/' component={Home}/>
 
-              <Route exact path='/' component={Home}/>
-
-              <Route 
-                exact path='/new_user'
-                render={(props) => 
-                  <NewUser 
-                    loginUser={this.loginUser}
-                    {...props}/>}
-              />
-              <Route 
-                exact path='/my_profile' 
-                render={(props) => 
-                  <MyProfile 
-                    {...this.state}
-                    currentUser={this.state.currentUser}
-                    {...props}/>}
-              />
-              <Route
-                exact path='/login'
-                render={(props) => 
-                  <Login loginUser={this.loginUser}
+            <Route 
+              exact path='/new_user'
+              render={(props) => 
+                <NewUser 
+                  loginUser={this.loginUser}
                   {...props}/>}
-              />
-              <Route exact path='/events' component={AllEvents}/>
-
-              <Route exact path='/find_event'
-                render={(props) => 
-                  <FindEvent 
-                    {...this.state}
-                    currentUser={this.state.currentUser}
-                    {...props}/>}
-              />
-
-              <Route exact path='/search/:params' component={SearchResults} />
-              
-              <Route 
-                exact path='/event/:id' 
-                render={(props) =>
-                <Event currentUser={this.state.currentUser}
+            />
+            <Route 
+              exact path='/my_profile' 
+              render={(props) => 
+                <MyProfile 
+                  {...this.state}
+                  currentUser={this.state.currentUser}
+                  {...props}/>}
+            />
+            <Route
+              exact path='/login'
+              render={(props) => 
+                <Login loginUser={this.loginUser}
                 {...props}/>}
-              />
+            />
+            <Route exact path='/events' component={AllEvents}/>
 
-              <Route
-                exact path='/confirmation'
-                render={(props) =>
-                <Confirmation currentUser={this.state.currentUser}
-                {...props} />}
-              />
-            </div>
+            <Route exact path='/find_event'
+              render={(props) => 
+                <FindEvent 
+                  {...this.state}
+                  currentUser={this.state.currentUser}
+                  {...props}/>}
+            />
 
-            <Footer currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser} />
+            <Route exact path='/search/:params' component={SearchResults} />
+            
+            <Route 
+              exact path='/event/:id' 
+              render={(props) =>
+              <Event currentUser={this.state.currentUser}
+              {...props}/>}
+            />
+
+            <Route
+              exact path='/confirmation'
+              render={(props) =>
+              <Confirmation currentUser={this.state.currentUser}
+              {...props} />}
+            />
           </div>
+          <Footer currentUser={this.state.currentUser} handleLogout={this.handleLogout} loginUser={this.loginUser} />
         </div>
       </Router>
     ); // return
