@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { BASE_URL } from '../config/constants';
 import '../stylesheets/style.css';
 import '../stylesheets/confirmation.css';
+import '../stylesheets/Tickets.css';
 import {DateTime} from "luxon";
 import Ticket from '../components/BookingConfirmation/Ticket';
 

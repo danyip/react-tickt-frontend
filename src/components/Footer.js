@@ -8,16 +8,26 @@ export default class Footer extends Component {
 
         <div className="footer-flex">
           <div className="footer-item">
-            <p>left</p>
+            <p>
+              tickt Inc<br />
+              1 Entertainment Way<br />
+              Sydney NSW 2000
+            </p>
           </div>
           <div className="footer-item">
-            <p>middle</p>
+            <p>
+              All Events<br />
+              Events Near Me<br />
+              My Profile<br />
+              Log Out
+            </p>
           </div>
-          <div className="footer-item">
-            <p>right</p>
+          <div className="footer-item" id="footer-right">
+            <h1>tickt</h1>
           </div>
-        </div>
+         </div>
 
+        <p>&copy; tickt 2022</p>
       </footer>
     )
   }
