@@ -3,11 +3,17 @@ import Ticket from "../BookingConfirmation/Ticket";
 
 export default class UserBookings extends Component {
 
-    
+
   render() {
 
-    const events = this.props.events
+    if (!this.props.events){
 
+      return <div>Loading...</div>
+    } else {
+
+      
+      const events = this.props.events
+      
     return (
       <div>
         {Object.keys(events).map((event, i)=>{
@@ -31,5 +37,6 @@ export default class UserBookings extends Component {
 
       </div>
     )
+  }
   }
 }
