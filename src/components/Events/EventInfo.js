@@ -18,26 +18,31 @@ export default function EventInfo(props) {
         <button onClick={props.handleMakeBooking}>Make Booking</button>
       </div>
       <div className="col2">
-        <section>
-          <h5>Venue</h5>
-          <p>{event.venue.name}</p>
+        <div className="nested-col1">
+          <section>
+            <h5>Venue</h5>
+            <p>{event.venue.name}</p>
+          </section>
+          <section>
+            <h5>Date</h5>
+            <p>{DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_HUGE)}</p>
+          </section>
+          <section>
+            <h5>Time</h5>
+            <p>{DateTime.fromISO(event.time).toLocaleString({ hour:'numeric', minute: 'numeric' , timeZoneName: 'short' })}</p>
+          </section>
+        </div>
+        <div className="nested-col2">
+          <section>
+            <h5>Tickets Left</h5>
+            <p>{props.ticketsLeft}</p>
+          </section>
+          <section>
+            <h5>Price</h5>
+            <p>${event.price/100}</p>
         </section>
-        <section>
-          <h5>Date</h5>
-          <p>{DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_HUGE)}</p>
-        </section>
-        <section>
-          <h5>Time</h5>
-          <p>{DateTime.fromISO(event.time).toLocaleString({ hour:'numeric', minute: 'numeric' , timeZoneName: 'short' })}</p>
-        </section>
-        <section>
-          <h5>Tickets Left</h5>
-          <p>{props.ticketsLeft}</p>
-        </section>
-        <section>
-          <h5>Price</h5>
-          <p>${event.price/100}</p>
-        </section>
+        </div>
+        
       </div>
     </article>
   )

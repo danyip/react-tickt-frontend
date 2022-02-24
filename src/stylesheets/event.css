@@ -23,9 +23,7 @@
 }
 
 .event-image {
-    max-width: 850px;
-    max-height: 400px;
-    margin-right: 20px;
+    margin-right: 20px; 
 }
 
 .purchase-button {
@@ -36,7 +34,7 @@
 .event-info-comments-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 60px auto;
+    margin-top: 60px;
     gap: 20px;
 }
 
@@ -49,6 +47,7 @@
 .event-comments {
     flex: 1 200px;
     max-width: 850px;
+    margin-bottom: 40px;
 }
 
 .comment-time {
@@ -57,9 +56,35 @@
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 1430px) {
     .event-image {
         width: 400px;
         
+
     }
+}
+
+@media (max-width: 900px) {
+    .event-info-container {
+        flex-direction: column;
+    }
+
+    .event-info-container .col1 {
+        width: 100%;
+    }
+
+    .event-info-container .col2 {
+        margin: 20px 0;
+        width: 80%;
+        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    .event-info-container .col2 {
+        
+    }
+
+   
 }
