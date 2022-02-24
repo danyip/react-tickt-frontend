@@ -4,33 +4,51 @@
     background-color:beige;
     border-radius: 20px;
     border: 1px solid black;
+    display:flex;
+    margin-bottom: 50px;
 }
 
-.virtual-ticket > h1 {
+.vt-left-container {
+    flex: 1 555px;
+}
+
+.vt-right-container {
+    flex: 1 200px;
+}
+
+.QR {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 200px;
+    right: 20px;
+
+}
+
+.vt-left-container > h1 {
     color:black;
     margin: 0;
     padding: 40px 40px 10px 40px;
 }
 
-.virtual-ticket > section {
+.vt-left-container > section {
     margin-left: 40px;
 }
 
-.virtual-ticket h3 {
+.vt-left-container h3 {
     margin: 0 0 15px 0;
     padding: 0;
 }
 
-.virtual-ticket h5 {
+.vt-left-container h5 {
     display: inline;
     line-height: 175%;
 }
 
-.virtual-ticket p {
+.vt-left-container p {
     margin: 0;
     padding: 0;
     display: inline;
     line-height: 175%;
 }
-
 

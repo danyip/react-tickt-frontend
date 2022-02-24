@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { BASE_URL } from '../apiBaseUrl';
+import { BASE_URL } from '../config/constants';
 import '../stylesheets/style.css';
 import '../stylesheets/confirmation.css';
 import {DateTime} from "luxon";

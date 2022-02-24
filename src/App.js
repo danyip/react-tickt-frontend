@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Route, Redirect, Link, BrowserRouter as Router} from 'react-router-dom';
-import {BASE_URL} from './apiBaseUrl'
+import { BASE_URL } from './config/constants';
 import Login from './pages/Login'
 import MyProfile from './components/User/MyProfile'
 import AllEvents from './pages/AllEvents'
@@ -15,6 +15,7 @@ import Confirmation from "./pages/Confirmation";
 import SearchResults from './pages/SearchResults';
 
 import './stylesheets/style.css';
+
 
 class App extends React.Component{
 

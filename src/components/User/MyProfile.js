@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {BASE_URL} from '../../apiBaseUrl'
+import { BASE_URL } from '../../config/constants';
 import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../../cld";
 import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";

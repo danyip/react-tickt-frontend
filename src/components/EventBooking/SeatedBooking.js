@@ -3,7 +3,7 @@ import SeatMap from './SeatMap'
 import SeatSelection from './SeatSelection'
 import '../../stylesheets/SeatedBooking.css'
 import axios from 'axios'
-import { BASE_URL } from '../../apiBaseUrl'
+import { BASE_URL } from '../../config/constants'
 
 export default class SeatedBooking extends Component {
 
@@ -81,7 +81,7 @@ export default class SeatedBooking extends Component {
     try {
       const res = await axios.post(`${BASE_URL}/tickets`, this.state.newTickets)
       console.log('purchaseTickets()', res.data);
-      this.props.history.push('/') //TODO: Make this redirect to the tickets
+      this.props.history.push('/confirmation', {tickets: res.data});
       
     } catch (err) {
       console.log('Error purchaseTickets()', err);
