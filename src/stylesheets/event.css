@@ -63,7 +63,9 @@
 
 
 @media (max-width: 1430px) {
-    
+    .event-info-container .col1 {
+        width: 100%;
+    }
 }
 
 @media (max-width: 900px) {
@@ -80,6 +82,8 @@
     .event-info-container .col1 {
         width: 100%;
     }
+
+
 
     .event-info-container .col2 {
         margin: 20px 0;
