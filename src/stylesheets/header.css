@@ -3,12 +3,17 @@ body {
     padding: 0;
 }
 
+div {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     font-family: nunito, sans-serif;
     font-weight: 400;
     font-style: normal;
     height: 90px;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     background-color: #A62216;

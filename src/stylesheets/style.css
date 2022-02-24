@@ -1,7 +1,14 @@
 .page-wrapper {
-    margin: auto;
-    width: 80%;
+    width: 100vw;
     max-width: 1920px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.content-wrapper {
+    margin: 50px 100px 100px 100px;
 }
 
 h2 {
