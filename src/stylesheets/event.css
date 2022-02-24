@@ -1,15 +1,28 @@
 .image-map-container {
     display: flex;
     margin-bottom: 24px;
+    
 }
 
-.event-map {
+/* .event-map {
     max-width: 850px;
+} */
+
+.event-info-container {
+    display: flex;
+}
+
+.event-info-container .col1 {
+    width: 60%;
+}
+
+.event-info-container .col2 {
+    margin-left: 50px;
 }
 
 .event-image {
     max-width: 850px;
-    height: 400px;
+    max-height: 400px;
     margin-right: 20px;
 }
 

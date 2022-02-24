@@ -11,7 +11,7 @@ import UserBookings from "./UserBookings";
 class MyProfile extends React.Component{
 
   state = {
-    events: []
+    events: null,
   }
 
   componentDidMount() {

@@ -18,11 +18,10 @@ export default class Search extends Component{
 
   render(){
       return(
-          <div>
+          <div className="search">
               <form onSubmit={this.handleSearch}>
                   <input type="text" onChange={this.handleInput} />
-                  <br />
-                  <button>Search</button>
+                  <button className="searchBtn">Search</button>
               </form>
           </div>
       )
