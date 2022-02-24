@@ -112,6 +112,13 @@ export default class FindEvent extends Component {
 
   render() {
 
+
+    if(this.state.loading){
+      return (
+        <div className='loading'>Loading...</div>
+      )
+    } else {
+
     const currentVenue = this.state.venueSelected
     const venueImage = cld.image(currentVenue.image); 
     venueImage.resize(thumbnail().width(125).height(125))
@@ -119,13 +126,6 @@ export default class FindEvent extends Component {
     return (
       <div className='map-page-wrapper'>
         
-          {
-            this.state.loading
-            ?
-            <div>
-              Loading Map...
-            </div>
-            :
             <div className='map-wrapper'>
               <LoadScript
                 googleMapsApiKey={GOOGLE_MAP_API_KEY}
@@ -156,7 +156,6 @@ export default class FindEvent extends Component {
                 </GoogleMap>
               </LoadScript>
             </div>
-          }
         
         {
           currentVenue
@@ -215,5 +214,6 @@ export default class FindEvent extends Component {
         }
       </div>    
     )
+      }
   }
 }
