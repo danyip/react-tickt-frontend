@@ -97,7 +97,7 @@ export default class Event extends Component {
             <p>{`${this.state.event.venue.name}, ${DateTime.fromISO(this.state.event.date).toLocaleString(DateTime.DATE_HUGE)}`}</p>
             
             <div className="image-map-container">
-              <div className="event-image"><AdvancedImage cldImg={myImage} /></div>
+              <AdvancedImage className="event-image" cldImg={myImage} />
               <SingleEventMap className="event-map" venue={this.state.event.venue} />
             </div>
             <div className="event-info-comments-container">

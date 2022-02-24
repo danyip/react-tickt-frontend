@@ -1,6 +1,8 @@
 .image-map-container {
     display: flex;
-    margin-bottom: 24px;
+    flex-wrap: wrap;
+    margin: 24px auto;
+    
     
 }
 
@@ -34,7 +36,7 @@
 .event-info-comments-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 60px;
+    margin-top: 60px auto;
     gap: 20px;
 }
 
@@ -54,3 +56,10 @@
     color: darkgray;
 }
 
+
+@media (max-width: 750px) {
+    .event-image {
+        width: 400px;
+        
+    }
+}
