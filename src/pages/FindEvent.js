@@ -138,7 +138,7 @@ export default class FindEvent extends Component {
                   <Marker 
                     key={1}
                     position={this.state.userCenter}
-                    icon={this.props.currentUser ? `https://res.cloudinary.com/tickt-project22/image/upload/w_30,c_scale/r_max/e_outline:outer:1/${this.props.currentUser.image}.png` : 'http://maps.google.com/mapfiles/ms/icons/horsebackriding.png'} 
+                    icon={this.props.currentUser ? `https://res.cloudinary.com/tickt-project22/image/upload/w_30,h_30,c_fill/r_max/e_outline:outer:1/${this.props.currentUser.image}.png` : 'http://maps.google.com/mapfiles/ms/icons/horsebackriding.png'} 
                   />
                   {
                     this.state.venuePositions.map((venue, i) => {
