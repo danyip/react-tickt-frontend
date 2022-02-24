@@ -3,7 +3,7 @@ import SeatMap from './SeatMap'
 import SeatSelection from './SeatSelection'
 import '../../stylesheets/SeatedBooking.css'
 import axios from 'axios'
-import { BASE_URL } from '../../apiBaseUrl'
+import { BASE_URL } from '../../config/constants'
 
 export default class SeatedBooking extends Component {
 

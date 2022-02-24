@@ -1,6 +1,6 @@
 import React from "react";
 import axios, { Axios } from "axios";
-import { BASE_URL } from "../apiBaseUrl";
+import { BASE_URL } from "../config/constants";
 import { Redirect } from 'react-router-dom';
 import '../stylesheets/User.css';
 

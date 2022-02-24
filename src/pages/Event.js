@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component, createRef, useRef } from 'react'
-import { BASE_URL } from '../apiBaseUrl';
+import { BASE_URL } from '../config/constants';
 import '../stylesheets/style.css';
 import '../stylesheets/event.css';
 import EventInfo from '../components/Events/EventInfo'
@@ -30,7 +30,6 @@ export default class Event extends Component {
     ticketsLeft: 0,
     showBooking: ''
   }
-
   
   scrollToRef = createRef();
 

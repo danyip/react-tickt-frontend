@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { BASE_URL } from '../apiBaseUrl';
+import { BASE_URL } from '../config/constants';
 import '../stylesheets/style.css'
 import '../stylesheets/home.css'
 import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../cld";
 import {thumbnail, scale, fill} from "@cloudinary/url-gen/actions/resize";
+import Search from '../components/Search/Search';
 
-import AllEventsMap from './FindEvent';
 
 export default class Home extends Component {
 
@@ -35,14 +35,21 @@ export default class Home extends Component {
     console.log('Clicked: ', id);
     this.props.history.push(`/event/${id}`)
   }
-  
 
+  returnSearch = (res) =>{
+    this.props.history.push(`/search/${res}`)
+  }
 
 
   render() {
     return (
       <div className="pages-wrapper" id="homepage">
-        
+
+        <div className="search-bar">
+          <h4>Search for an Event:</h4>
+          <Search returnSearch={this.returnSearch}/>
+        </div>
+
         <div className="tiles">
           <ul>
           {

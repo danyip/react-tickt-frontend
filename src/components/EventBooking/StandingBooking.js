@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { BASE_URL } from '../../apiBaseUrl'
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { BASE_URL } from '../../config/constants';
 
 
 export default class StandingBooking extends Component {
