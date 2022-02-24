@@ -2,7 +2,7 @@ import React from "react";
 import axios, { Axios } from "axios";
 import { BASE_URL } from "../apiBaseUrl";
 import { Redirect } from 'react-router-dom';
-import '../stylesheets/User.css';
+import '../stylesheets/newUser.css';
 
 
 
@@ -103,40 +103,52 @@ class NewUser extends React.Component{
     }
 
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="user" onSubmit={this.handleSubmit}>
         <label>Create User</label>
-        <br/>
-        <input
-          onChange={this.handleInput}
-          name="name"
-          type="name"
-          placeholder='Enter Name'
-        />
-        <br/>
-        <input
-          onChange={this.handleInput}
-          name="email"
-          type="email"
-          placeholder='Enter Email'
-        />
-        <br/>
-        <input
-          onChange={this.handleInput}
-          name="password"
-          type="password"
-          placeholder='Enter Password'
-        />
-        <br/>
-        <p>Upload profile image</p>
+        <ul>
+          <li> <label>Name:  </label>
+            <input
+              onChange={this.handleInput}
+              name="name"
+              type="name"
+              placeholder='Enter Name'
+            />
+          </li>
+       
+          <li>
+            <label>Email:  </label>
+            <input
+              onChange={this.handleInput}
+              name="email"
+              type="email"
+              placeholder='Enter Email'
+            />
+          </li>
         
-        
-        <button onClick={this.openWidget}>Upload Photo</button>
-        <br/>
-        {imageUrl && (
-            <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
-          )}
-        <br/>
+          <li>
+            <label>Password:  </label>
+            <input
+              onChange={this.handleInput}
+              name="password"
+              type="password"
+              placeholder='Enter Password'
+            />
+          </li>
+
+          <li>
+            <label>Upload profile image: </label>
+            <button onClick={this.openWidget}>Upload Photo</button>
+          </li>
+          <li>
+          { imageUrl && (
+              <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
+            )}
+          </li>
+           
+          
         <button>Sign Up</button>
+        </ul>
+       
       </form>
     )
   }

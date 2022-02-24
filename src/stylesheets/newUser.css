@@ -1,0 +1,29 @@
+body {
+  font-family: nunito, sans-serif;
+}
+
+.displayed-image {
+  height: 100px;
+  width: 100px;
+}
+
+ul {
+  list-style:none;
+	padding:0;
+	margin:0;
+}
+
+.user {
+  border: 3px solid #330400ba;
+  color: #330400;
+  background-color: ghostwhite;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  line-height: 200%;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin:  40px auto;
+  
+}
