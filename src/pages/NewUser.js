@@ -18,7 +18,7 @@ class NewUser extends React.Component{
     redirect: false,
     imageUrl: null,
     imageAlt: null,
-
+    publicId: 'elmo'
   }
 
   handleInput = (ev) => {
