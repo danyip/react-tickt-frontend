@@ -25,7 +25,7 @@ export default class Confirmation extends Component {
               {
               this.ticketData.map(ticket => {
                 return (
-                  <Ticket ticketData={ticket} currentUser={this.props.currentUser} />
+                  <Ticket key={ticket.id} ticketData={ticket} currentUser={this.props.currentUser} />
                 )
               })
 

@@ -57,7 +57,7 @@ export default function Tickets(props) {
             </div>
 
             <div className="vt-right-container">
-                <QRCode className="QR" value={`https://tickt-sei50.netlify.app/event/${ticketData.id}`} size="200"/>
+                <QRCode className="QR" value={`https://tickt-sei50.netlify.app/event/${ticketData.id}`} size={200} />
             </div>
 
         </div>

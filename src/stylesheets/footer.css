@@ -1,4 +1,16 @@
-.footer {
-    background-color:blue;
-    height: 100px;
+footer {
+    height: 150px;
+    width: 100%;
+    background-color: #A62216;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-flex {
+    display: flex;
+
+}
+
+.footer-item > p {
+    color:white;
 }
