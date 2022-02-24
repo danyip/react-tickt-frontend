@@ -56,7 +56,10 @@ class MyProfile extends React.Component{
                                     .height(150))} 
         />
 
+
+
         <UserBookings events={this.state.events} currentUser={this.props.currentUser}/>
+
         
       </div>
     );
