@@ -8,6 +8,7 @@ import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../cld";
 import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
 import '../stylesheets/FindEvent.css'
+import loading from '../assets/loading.gif'
 
 
 const containerStyle = {
@@ -115,7 +116,7 @@ export default class FindEvent extends Component {
 
     if(this.state.loading){
       return (
-        <div className='loading'>Loading...</div>
+        <div className='loading'><img src={loading}/></div>
       )
     } else {
 
@@ -125,6 +126,7 @@ export default class FindEvent extends Component {
 
     return (
       <div className='map-page-wrapper'>
+            
         
             <div className='map-wrapper'>
               <LoadScript
