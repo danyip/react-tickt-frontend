@@ -5,6 +5,7 @@ import { BASE_URL } from "../config/constants";
 import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../cld";
 import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
+import '../stylesheets/style.css';
 
 export default class SearchResults extends Component {
 
@@ -59,7 +60,7 @@ export default class SearchResults extends Component {
                                         .resize(thumbnail()
                                         .width(150))} 
             />
-              <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
+              <h3 className="search-result" onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>
               <p>{event.description}</p>
               <hr/>

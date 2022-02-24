@@ -46,7 +46,7 @@ export default class AllEvents extends Component {
                                         .resize(thumbnail()
                                         .width(150))} 
             />
-              <h3 onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
+              <h3 className="search-result" onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>
               <p>{event.description}</p>
               <hr/>

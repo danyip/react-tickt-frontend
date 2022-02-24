@@ -1,5 +1,5 @@
 .virtual-ticket {
-    width: 775px;
+    width: 650px;
     min-height: 430px;
     background-color:beige;
     border-radius: 20px;
@@ -63,6 +63,7 @@
 @media screen and (max-width: 770px) {
     .virtual-ticket {
         flex-direction: column;
+        width: 70vw;
     }
     .QR {
         position: static;
@@ -73,5 +74,27 @@
     }
     .vt-left-container {
         flex: 1;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .virtual-ticket {
+        width: 90vw;
+    }
+    .vt-left-container > h1 {
+        font-size: 40px;
+        padding: 20px 20px 10px 20px;
+
+    }
+    .vt-left-container h3 {
+        font-size: 20px;
+        margin: 0 0 20px 0;
+
+    }
+    .vt-left-container h5 {
+        font-size: 15px;
+    }
+    .vt-left-container > section {
+        margin-left: 20px;
     }
 }

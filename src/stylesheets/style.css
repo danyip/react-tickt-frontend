@@ -30,6 +30,10 @@ h3 {
     margin-bottom: 8px;
 }
 
+.search-result {
+    cursor: pointer;
+}
+
 h4 {
     font-family:apparat, sans-serif;
     font-weight: 400;
@@ -61,6 +65,12 @@ p {
 @media screen and (min-width: 1920px) {
     .content-wrapper {
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-wrapper {
+        margin: 0 20px;
     }
 }
 
