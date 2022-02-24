@@ -7,11 +7,12 @@ import {DateTime} from "luxon";
 import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../cld";
 import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
+import '../stylesheets/FindEvent.css'
 
 
 const containerStyle = {
-  width: '600px',
-  height: '450px'
+  width: '100%',
+  height: '100%'
 };
 
 
@@ -116,8 +117,8 @@ export default class FindEvent extends Component {
     venueImage.resize(thumbnail().width(125).height(125))
 
     return (
-      <div>
-        <div className='mapDiv'>
+      <div className='map-page-wrapper'>
+        
           {
             this.state.loading
             ?
@@ -125,7 +126,7 @@ export default class FindEvent extends Component {
               Loading Map...
             </div>
             :
-            <div>
+            <div className='map-wrapper'>
               <LoadScript
                 googleMapsApiKey={GOOGLE_MAP_API_KEY}
               >
@@ -156,7 +157,7 @@ export default class FindEvent extends Component {
               </LoadScript>
             </div>
           }
-        </div>
+        
         {
           currentVenue
           ?
@@ -193,20 +194,25 @@ export default class FindEvent extends Component {
             }
           </article>
           :
-          <article className='allVenues'>
+          <article className='venues-container'>
             {
               this.state.venues.map((ven, i) => {
                 return(
-                  <div key={ven.id} onClick={() => {
-                    this.handleClick(i)}}>
+                  <div  key={ven.id} 
+                        onClick={() => {this.handleClick(i)}}
+                        className='venue'
+                  >
                     <AdvancedImage cldImg={ cld.image(ven.image)
-                      .resize(thumbnail()
-                      .width(150)
-                      .height(150))} 
+                                            .resize(thumbnail()
+                                            .width(150)
+                                            .height(150))
+                                          } 
                     />
-                    <h4>{ven.name}</h4>
-                    <p>{ven.address}</p>
-                    <p>Number of events: {ven.events.length}</p>
+                    <div>
+                      <h4>{ven.name}</h4>
+                      <p>{ven.address}</p>
+                      <p>Number of events: {ven.events.length}</p>
+                    </div>
 
                   </div>
                 )
