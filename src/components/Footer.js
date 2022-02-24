@@ -33,8 +33,6 @@ export default class Footer extends Component {
             <h1>tickt</h1>
           </div>
         </div>
-
-        <p>&copy; tickt 2022</p>
       </footer>
     )
   }
