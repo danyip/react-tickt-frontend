@@ -6,8 +6,10 @@ import QRCode from 'react-qr-code';
 
 export default function Tickets(props) {
 
-    if(!props.ticketData){
+    // console.log(props.ticketData.id);
+    if(!props.ticketData.id){
         return <div>Loading</div>
+
     }else {
 
         const ticketData = {...props.ticketData};
@@ -68,7 +70,7 @@ export default function Tickets(props) {
               </div>
           </article>
           )
-          
+
     }
 
 }
