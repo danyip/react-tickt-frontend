@@ -1,6 +1,6 @@
 .virtual-ticket {
     width: 775px;
-    height: 430px;
+    min-height: 430px;
     background-color:beige;
     border-radius: 20px;
     border: 1px solid black;
@@ -22,7 +22,6 @@
     position: relative;
     top: 200px;
     right: 20px;
-
 }
 
 .vt-left-container > h1 {
@@ -61,3 +60,18 @@
     font-style: normal;
 }
 
+@media screen and (max-width: 770px) {
+    .virtual-ticket {
+        flex-direction: column;
+    }
+    .QR {
+        position: static;
+        padding: 40px;
+    }
+    .vt-right-container {
+        flex: 1;
+    }
+    .vt-left-container {
+        flex: 1;
+    }
+}
