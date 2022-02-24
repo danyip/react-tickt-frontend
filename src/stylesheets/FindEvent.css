@@ -5,15 +5,13 @@
 .map-wrapper{
   width: 600px;
   height: 450px; 
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   margin-right: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
 }
 
-
-
 .venues-container{
-  margin-top: 2rem;
+  
   height: 450px;
   padding: 0.5rem;
   overflow-y: scroll;
@@ -76,6 +74,9 @@
   }
   .map-wrapper{
     margin-right: 0;
+  }
+  .venues-container{
+    margin-top: 2rem;
   }
   
 }
