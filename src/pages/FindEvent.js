@@ -170,10 +170,8 @@ export default class FindEvent extends Component {
             {
               this.state.venueSelected.events.map((event) => {
                 return (
-                  <div className='venue-event'>
-                    <h4 onClick={() => {this.getMoreInfo(event.id)}}>
-                      {event.name}
-                    </h4>
+                  <div className='venue-event' onClick={() => {this.getMoreInfo(event.id)}}>
+                    <h4> {event.name} </h4>
                     <p><strong>Date</strong> 
                       {DateTime.fromISO(event.date).toLocaleString(DateTime.DATE_HUGE)},
                       &nbsp;
@@ -183,10 +181,6 @@ export default class FindEvent extends Component {
                    
                     <p><strong>Price:</strong> ${event.price/100}</p>
                     
-                    <button 
-                      onClick={() => {this.getMoreInfo(event.id)}}>
-                      Get more Info           
-                    </button>
                   </div>
                 )
               })

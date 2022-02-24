@@ -6,7 +6,7 @@
   width: 600px;
   height: 450px; 
   /* margin-top: 2rem; */
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
 }
 
@@ -35,11 +35,15 @@
   font-size: 1rem;
   margin-bottom: 1rem ;
   padding: 0.5rem;
+  
+}
+
+.venue{
   display: flex;
 }
 
 
-.venue:hover{
+.venue:hover, .venue-event:hover{
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.708) 1px 3px 10px;
 }
@@ -74,9 +78,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
 }
-@media screen and (max-width: 1220px) {
-  .venue{
+@media screen and (max-width: 1280px) {
+  .venue, .venue-event{
     width: 600px
   }
   .map-wrapper{
@@ -93,7 +98,7 @@
     width: 450px;
     height: 300px;
   }
-  .venue{
+  .venue, .venue-event{
     width: 450px
   }
 
@@ -108,10 +113,10 @@
     width: 300px;
     height: 200px;
   }
-  .venue{
+  .venue, .venue-event{
     width: 250px
   }
-  .venues-container{
+  .venues-container, .venue-container{
     height: 250px;
   }
   
