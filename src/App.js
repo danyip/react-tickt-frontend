@@ -10,7 +10,7 @@ import Event from "./pages/Event";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import AllEventsMap from './pages/FindEvent';
+import FindEvent from './pages/FindEvent';
 import Confirmation from "./pages/Confirmation";
 import SearchResults from './pages/SearchResults';
 
@@ -96,7 +96,13 @@ class App extends React.Component{
           />
           <Route exact path='/events' component={AllEvents}/>
 
-          <Route exact path='/find_event' component={AllEventsMap} />
+          <Route exact path='/find_event'
+            render={(props) => 
+              <FindEvent 
+                {...this.state}
+                currentUser={this.state.currentUser}
+                {...props}/>}
+          />
 
           <Route exact path='/search/:params' component={SearchResults} />
           

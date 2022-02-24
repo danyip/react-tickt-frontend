@@ -50,13 +50,16 @@ class MyProfile extends React.Component{
         <p>Hello {this.props.currentUser.name}</p>
         <p>Your email is {this.props.currentUser.email}</p>
         
-        {<AdvancedImage cldImg={cld.image(this.props.currentUser.image)
+        <AdvancedImage cldImg={cld.image(this.props.currentUser.image)
                                     .resize(thumbnail()
                                     .width(150)
                                     .height(150))} 
-        />}
+        />
 
-        {<UserBookings events={this.state.events} currentUser={this.props.currentUser}/>}
+
+
+        <UserBookings events={this.state.events} currentUser={this.props.currentUser}/>
+
         
       </div>
     );

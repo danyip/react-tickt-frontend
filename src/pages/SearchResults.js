@@ -16,6 +16,12 @@ export default class SearchResults extends Component {
     this.returnResults()
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.match.params.params !== this.props.match.params.params){
+      this.returnResults()
+    }
+  }
+
   returnResults = async () => {
     const url = `${BASE_URL}/search`
 
@@ -30,7 +36,7 @@ export default class SearchResults extends Component {
   }
 
   returnSearch = (res) =>{
-    this.returnResults()
+    // this.returnResults()
     this.props.history.push(`/search/${res}`)
   }
 
