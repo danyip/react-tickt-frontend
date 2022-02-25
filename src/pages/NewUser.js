@@ -104,10 +104,11 @@ class NewUser extends React.Component{
 
     return(
       <form className="user" onSubmit={this.handleSubmit}>
-        <label>Create User</label>
+        <label><h3 id="create-user-h3">Create User</h3></label>
         <ul>
           <li> <label>Name:  </label>
             <input
+              className="user-input"
               onChange={this.handleInput}
               name="name"
               type="name"
@@ -118,6 +119,7 @@ class NewUser extends React.Component{
           <li>
             <label>Email:  </label>
             <input
+              className="user-input"
               onChange={this.handleInput}
               name="email"
               type="email"
@@ -128,6 +130,7 @@ class NewUser extends React.Component{
           <li>
             <label>Password:  </label>
             <input
+              className="user-input"
               onChange={this.handleInput}
               name="password"
               type="password"
@@ -137,7 +140,7 @@ class NewUser extends React.Component{
 
           <li>
             <label>Upload profile image: </label>
-            <button onClick={this.openWidget}>Upload Photo</button>
+            <button className="user-button" onClick={this.openWidget}>Upload Photo</button>
           </li>
           <li>
           { imageUrl && (
@@ -146,7 +149,7 @@ class NewUser extends React.Component{
           </li>
            
           
-        <button>Sign Up</button>
+        <button className="user-button">Sign Up</button>
         </ul>
        
       </form>
