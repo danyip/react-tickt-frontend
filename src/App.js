@@ -14,7 +14,7 @@ import FindEvent from './pages/FindEvent';
 import Confirmation from "./pages/Confirmation";
 import SearchResults from './pages/SearchResults';
 
-import './stylesheets/style.css';
+// import './stylesheets/style.css';
 
 
 class App extends React.Component{

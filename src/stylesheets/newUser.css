@@ -25,5 +25,17 @@ ul {
   text-align: center;
   width: 50%;
   margin:  40px auto;
-  
+  min-width: 300px;
+}
+
+.login-button {
+  color:white;
+  padding: 6px 25px;
+  border: none;
+}
+
+@media screen and (min-width: 1921px) {
+  .user {
+    width: 960px;
+  }
 }

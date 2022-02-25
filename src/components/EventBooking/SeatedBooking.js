@@ -106,7 +106,8 @@ export default class SeatedBooking extends Component {
   render() {
     return (
       <div className="seated-booking-container">
-        <SeatMap
+        <SeatMap 
+          className='scroll'
           seatingArray={this.state.seatingArray}
           addNewTicket={this.addNewTicket}
           removeFromNewTickets={this.removeFromNewTickets}
