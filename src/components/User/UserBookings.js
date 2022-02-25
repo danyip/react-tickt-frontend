@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Ticket from "../BookingConfirmation/Ticket";
+import {DateTime} from "luxon";
+
 
 export default class UserBookings extends Component {
 
@@ -22,7 +24,7 @@ export default class UserBookings extends Component {
             <h3>
               {event} 
             </h3>
-            <p>{events[event][0].event.date}</p>
+            <p>{DateTime.fromISO(events[event][0].event.date).toLocaleString(DateTime.DATE_HUGE)}</p>
 
             {events[event].map(ticket=>{
               return(

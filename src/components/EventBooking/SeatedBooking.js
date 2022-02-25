@@ -96,7 +96,7 @@ export default class SeatedBooking extends Component {
                                   this.state.newTickets,
                                   { headers: {'Authorization': token}}
       );
-      console.log("purchaseTickets()", res.data);
+      // console.log("purchaseTickets()", res.data);
       this.props.history.push("/confirmation", { tickets: res.data });
     } catch (err) {
       console.log("Error purchaseTickets()", err);

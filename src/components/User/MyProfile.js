@@ -5,7 +5,7 @@ import {AdvancedImage} from '@cloudinary/react';
 import { cld } from "../../cld";
 import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
 import UserBookings from "./UserBookings";
-
+import '../../stylesheets/profile.css';
 
 
 class MyProfile extends React.Component{
@@ -28,7 +28,6 @@ class MyProfile extends React.Component{
           'Authorization': token
         }
       })
-      console.log(res.data);
       this.setState({events: res.data})
       
     } catch (err) {
@@ -47,16 +46,18 @@ class MyProfile extends React.Component{
       return(
         <div className='page-wrapper'>
 
-        <p>Hello {this.props.currentUser.name}</p>
+        <h2><strong>Hello {this.props.currentUser.name}</strong></h2>
         <p>Your email is {this.props.currentUser.email}</p>
+
         
-        <AdvancedImage cldImg={cld.image(this.props.currentUser.image)
+        <AdvancedImage className="profile-image" cldImg={cld.image(this.props.currentUser.image)
                                     .resize(thumbnail()
                                     .width(150)
                                     .height(150))} 
-        />
+                                    />
 
 
+        <h2><strong>Your Tickets</strong></h2>
 
         <UserBookings events={this.state.events} currentUser={this.props.currentUser}/>
 

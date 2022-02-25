@@ -1,13 +1,12 @@
 .page-content {
     display: flex;
     flex-direction: column;
-    margin: 20px auto
-   
+    margin: 0 auto
 }
 
 .event-content-wrapper {
     display: flex;
-   justify-content: center;
+    justify-content: center;
 }
 
 .image-map-container {
@@ -77,13 +76,12 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 770px) {
 
     .event-image {
         width: 400px;
-        
-
     }
+
     .event-info-container {
         flex-direction: column;
     }
@@ -92,18 +90,11 @@
         width: 100%;
     }
 
-
-
     .event-info-container .col2 {
         margin: 20px 0;
         width: 80%;
         display: inline-block;
         display: flex;
         justify-content: space-between;
-        
-    }
-
-    p {
-        font-size: 14px;;
     }
 }
