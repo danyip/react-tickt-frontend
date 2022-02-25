@@ -60,13 +60,46 @@
 
 .event-comments {
     flex: 1 200px;
-    max-width: 850px;
+    max-width: 600px;
     margin-bottom: 40px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.event-comments-container{
+    max-height: 400px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    margin: 1rem;
+    -ms-overflow-style: none;
+}
+
+
+.single-comment {
+    /* border: 1px solid hotpink; */
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    margin: 0.5rem;
+}
+
+.single-comment h5{
+    margin: 0;
+}
+
+.single-comment p{
+    margin: 0
+}
+
+.quill-editor{
+    margin: 0.5rem
 }
 
 .comment-time {
     font-size: 14px;
     color: darkgray;
+    margin: 0;
 }
 
 
