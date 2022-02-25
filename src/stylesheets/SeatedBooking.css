@@ -8,6 +8,8 @@
 .seat-map-viewport{
  
   font-size: 0.5rem; /* THIS IS THE ONE TO CHANGE THE SIZE OF THE SEATS */
+  height: 500px;
+  padding: 1rem;
 }
 
 .stage{
@@ -62,8 +64,6 @@
 @media (max-width: 900px) {
   .seated-booking-container {
     flex-direction: column;
-   
-    
     flex-shrink: 1;
   }
 

@@ -15,7 +15,6 @@ export default function EventInfo(props) {
           <h5>Event Description</h5>
           <p>{event.description}</p>
         </section>
-        <button className="make-booking-button" onClick={props.handleMakeBooking}>Make Booking</button>
       </div>
       <div className="col2">
         <div className="nested-col1">
@@ -42,6 +41,7 @@ export default function EventInfo(props) {
             <p>${event.price/100}</p>
         </section>
         </div>
+        <button className="make-booking-button" onClick={props.handleMakeBooking}>Make Booking</button>
         
       </div>
     </article>

@@ -106,7 +106,7 @@ export default class Event extends Component {
             
             <div className="image-map-container">
               <AdvancedImage className="event-image" cldImg={myImage} />
-              <SingleEventMap className="event-map" venue={this.state.event.venue} />
+              <SingleEventMap venue={this.state.event.venue} />
             </div>
             <div className="event-info-comments-container">
               <div className="event-info">
@@ -116,7 +116,14 @@ export default class Event extends Component {
                             
                 />
               </div>
-              
+              <div className="event-comments">
+                <EventComments 
+                  comments={this.state.event.comments} 
+                  currentUser={this.props.currentUser}
+                  eventId={this.state.event.id}
+                  newComment={this.newComment}
+                  />
+              </div>
 
             </div>
               
@@ -136,14 +143,7 @@ export default class Event extends Component {
                                                   history={this.props.history}
                                                   />}
               
-              <div className="event-comments">
-                <EventComments 
-                  comments={this.state.event.comments} 
-                  currentUser={this.props.currentUser}
-                  eventId={this.state.event.id}
-                  newComment={this.newComment}
-                  />
-              </div>
+              
             </div>
           </div>
           
