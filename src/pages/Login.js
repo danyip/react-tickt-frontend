@@ -55,7 +55,7 @@ class Login extends React.Component{
           placeholder='Enter Password'
         />
         <br/>
-        <button>Login</button>
+        <button className="login-button">Login</button>
       </form>
     ); // return
   }// render()

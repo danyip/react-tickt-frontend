@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import { BASE_URL } from '../config/constants';
 import '../stylesheets/style.css';
 import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen";
 import { cld } from "../cld";
-import {thumbnail, scale} from "@cloudinary/url-gen/actions/resize";
+import {fill} from "@cloudinary/url-gen/actions/resize";
+import '../stylesheets/allEvents.css';
 
 export default class AllEvents extends Component {
   state = {
@@ -40,16 +42,15 @@ export default class AllEvents extends Component {
         {
           this.state.allEvents.map(event => {
             return(
-            <article key={event.id} >
+            <article key={event.id} className="event-index" onClick={()=>this.handleClick(event.id)}>
               
-            <AdvancedImage cldImg={ cld.image(event.image)
-                                        .resize(thumbnail()
-                                        .width(150))} 
+            <AdvancedImage cldImg={ cld.image(event.image).resize(fill().width(250).height(250))} 
             />
-              <h3 className="search-result" onClick={()=>this.handleClick(event.id)}>{event.name}</h3>
+            <div className="text-wrapper">
+              <h3>{event.name}</h3>
               <p> <strong>Venue: </strong>{event.venue.name}</p>
               <p>{event.description}</p>
-              <hr/>
+            </div>
             </article>)
           })
         }
