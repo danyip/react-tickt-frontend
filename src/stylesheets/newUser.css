@@ -25,5 +25,5 @@ ul {
   text-align: center;
   width: 50%;
   margin:  40px auto;
-  
+  min-width: 300px;
 }
