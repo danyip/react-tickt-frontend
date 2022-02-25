@@ -1,0 +1,37 @@
+/* *{
+  border: 1px solid hotpink;
+} */
+
+
+
+.event-index{
+  display: flex;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 1px 3px 10px;
+  width: 99%;
+  font-size: 1rem;
+  margin-bottom: 2rem ;
+  padding: 0.5rem;
+  align-items: top;
+}
+
+.event-index img{
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 10rem;
+  align-items: center;
+  margin: auto 1rem;
+  
+}
+
+.event-index h3{
+  width: 60rem;
+  position: relative;
+  justify-content: center;
+  margin: 0;
+}
+
+.event-index:hover{
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.708) 1px 3px 10px;
+}
