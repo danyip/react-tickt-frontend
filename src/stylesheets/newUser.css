@@ -34,6 +34,12 @@ ul {
   border: none;
 }
 
+.new-user-button {
+  color: white;
+  padding: 6px 25px;
+  border: none;
+}
+
 @media screen and (min-width: 1921px) {
   .user {
     width: 960px;

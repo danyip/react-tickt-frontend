@@ -137,7 +137,7 @@ class NewUser extends React.Component{
 
           <li>
             <label>Upload profile image: </label>
-            <button onClick={this.openWidget}>Upload Photo</button>
+            <button className="new-user-button" onClick={this.openWidget}>Upload Photo</button>
           </li>
           <li>
           { imageUrl && (
@@ -146,7 +146,7 @@ class NewUser extends React.Component{
           </li>
            
           
-        <button>Sign Up</button>
+        <button className="new-user-button">Sign Up</button>
         </ul>
        
       </form>
