@@ -19,16 +19,19 @@
   border-radius: 0.5rem;
   width: 10rem;
   height: 10rem;
-  align-items: center;
-  margin: auto 1rem;
+  align-self: top;
+  margin: 0 1rem;
   
 }
 
 .event-index h3{
-  width: 60rem;
   position: relative;
   justify-content: center;
   margin: 0;
+}
+
+.text-wrapper p{
+  width: auto;
 }
 
 .event-index:hover{
