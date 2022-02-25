@@ -35,7 +35,7 @@ export default class Event extends Component {
 
   fetchOneEvent = async ()=>{
     const url = `${BASE_URL}/events/${this.props.match.params.id}`
-
+    // console.log('here');
     try {
       const res = await axios.get(url)
       // console.log('fetchOneEvent()',res.data);
@@ -52,7 +52,13 @@ export default class Event extends Component {
 
   componentDidMount(){
     this.fetchOneEvent()
-    
+    this.polling = setInterval(() => {
+      this.fetchOneEvent()
+    }, 1000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.polling)
   }
   
   // Adds a new comment to state after posting to server
