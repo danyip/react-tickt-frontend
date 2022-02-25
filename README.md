@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# tickt - Entertainment Tickets Retailer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Click here to visit tickt!](https://tickt-sei50.netlify.app/)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+tickt sells tickets to your favourite events. You can view events on the platform as a guest. Create an account to buy tickets, book a seat, and make comments.
 
-### `npm start`
+## Main Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The platform supports general admission and seated style events. You can book your seat on the site, so you can have the best seat in the house!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Use our interactive map to find events near you or search by keyword. It's easy to find your event!
 
-### `npm test`
+The site is responsive to the size of your computer or device so you can easily browse events, buy tickets or view your bookings on any screen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tickets are emblazoned with a QR code that can be used to share the event with other smartphone users. 
 
-### `npm run build`
+## Known Bugs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+No known bugs.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ruby On Rails back-end using CRUD system, hosted with Heroku.
 
-### `npm run eject`
+Front-end created with React, hosted with Netlify.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Cloud images created with Cloudinary.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Styling created with CSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+QR codes created with Ross Khanas' [react-qr-code](https://github.com/rosskhanas/react-qr-code).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Wishlist
 
-## Learn More
+Comment likes and social page with trending events and comments.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Private event functionality.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Stripe for purchasing.
