@@ -26,8 +26,8 @@ h3 {
     font-style: normal;
     font-size: 32px;
     color: #330400;
-    margin-top: 48px;
     margin-bottom: 8px;
+    margin-top: 0;
 }
 
 .search-result {
@@ -68,9 +68,23 @@ p {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 770px) {
     .content-wrapper {
         margin: 0 20px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width 450px) {
+    p {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 24px;
     }
 }
 
